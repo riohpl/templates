@@ -876,45 +876,45 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         justify-content: center;
         align-items: center;
       }
-      .dot::before {
+      /* .dot::before {
         content: "";
         display: block;
         width: 16px;
         height: 16px;
         border-radius: 50%;
         background-color: #d8d8d8;
-      }
+      } */
 
       .dot.active {
         border-collapse: separate;
         border-spacing: 1px;
         border: 1px solid #252525;
       }
-      .light-black::before {
+      .light-black {
         background-color: #1a1919;
       }
-      .white::before {
+      .white {
         background-color: #e5e7eb;
       }
-      .light-green::before {
+      .light-green {
         background-color: #235347;
       }
-      .light-orange::before {
+      .light-orange {
         background-color: #dfcbbd;
       }
-      .light-blue::before {
+      .light-blue {
         background-color: #cae4f6;
       }
-      .light-pink::before {
+      .light-pink {
         background-color: #fdd5c9;
       }
-      .pink::before {
+      .pink {
         background-color: #f568bf;
       }
-      .violet::before {
+      .violet {
         background-color: #ccd2f6;
       }
-      .red::before {
+      .red {
         background-color: #be2332;
       }
       .headerLogo {
@@ -957,6 +957,8 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         }
         main {
           padding: 0;
+          display: flex;
+          justify-content: center;
         }
         .shopnow {
           display: block;
@@ -970,6 +972,12 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         .left {
           width: 50%;
           margin: 0;
+          scale: 0.75;
+        }
+        #content {
+          align-items: center !important;
+          justify-content: center !important;
+          margin-bottom: 0;
         }
       }
       @media (orientation: portrait) {
@@ -979,8 +987,15 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
           flex-direction: column !important;
           align-items: center !important;
           justify-content: center !important;
+          margin-bottom: 5rem;
         }
       }
+      /* @media screen and (min-width: 768px){
+        .card{
+          max-width: none;
+          width: 100vw;
+        }
+      } */
       .mb {
         margin-bottom: 20px;
       }
