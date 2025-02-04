@@ -990,12 +990,11 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
           margin-bottom: 5rem;
         }
       }
-      /* @media screen and (min-width: 768px){
+      @media screen and (min-width: 768px){
         .card{
-          max-width: none;
-          width: 100vw;
+          scale: 0.75;
         }
-      } */
+      }
       .mb {
         margin-bottom: 20px;
       }
@@ -1007,10 +1006,10 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
     >
       <div
         class="w-full max-w-[100%] mx-auto flex justify-center items-center headLogo"
-      >
+      > 
         <img class="headerLogo full h-auto" alt="Statiks 360 logo" />
       </div>
-      <section id="content" class="overflow-y-scroll content">
+      <section id="content" class="w-full max-w-[90%] overflow-hidden mx-auto  content">
         <div class="relative overflow-hidden mx-auto rounded-xl left">
           <div
             id="slider"
