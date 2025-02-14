@@ -12,7 +12,7 @@
       }
       .almond_card_2 {
         content: url("./Nutcom-Exports/almonds/2.png");
-      }
+      }d
       .almond_card_3 {
         content: url("./Nutcom-Exports/almonds/3.png");
       }
@@ -462,7 +462,7 @@
           margin-top: 0 !important;
         }
         .slideWidth {
-          align-items: unset
+          align-items: unset;
         }
       }
 
@@ -523,6 +523,19 @@
           margin-top: 4%;
         }
       }
+      .hideSlide {
+        animation: hideSlide 0.3s ease-in;
+        animation-fill-mode: forwards;
+      }
+      @keyframes hideSlide {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+    
     </style>
   </head>
 
@@ -629,7 +642,7 @@
                   >
                     <img
                       src="./Nutcom-Exports/Category/Cart.png"
-                      class="w-[60%] min-[460px]:w-[5vw]"
+                      class="w-[60%] min-[460px]:w-[5vw] landscape:w-[3vw]"
                     />
                   </div>
                   <img
@@ -646,7 +659,7 @@
                   >
                     <img
                       src="./Nutcom-Exports/Category/Cart.png"
-                      class="w-[60%] min-[460px]:w-[5vw]"
+                      class="w-[60%] min-[460px]:w-[5vw] landscape:w-[3vw]"
                     />
                   </div>
                   <img
@@ -663,7 +676,7 @@
                   >
                     <img
                       src="./Nutcom-Exports/Category/Cart.png"
-                      class="min-[460px]:w-[5vw] w-[60%]"
+                      class="min-[460px]:w-[5vw] w-[60%] landscape:w-[3vw]"
                     />
                   </div>
                   <img
@@ -680,7 +693,7 @@
                   >
                     <img
                       src="./Nutcom-Exports/Category/Cart.png"
-                      class="w-[60%] min-[460px]:w-[5vw]"
+                      class="w-[60%] min-[460px]:w-[5vw] landscape:w-[3vw]"
                     />
                   </div>
                   <img
@@ -692,7 +705,7 @@
                 </div>
               </div>
             </div>
-            <div class="slide">
+            <div class="slide" id="slide4">
               <div class="category">
                 <img
                   class=""
@@ -736,21 +749,22 @@
               </div>
             </div>
             <div
-              class="slide h-screen flex justify-center items-center gap-9 mt-0 min-[460px]:mt-[4%] "
+              class="slide h-screen flex justify-center items-center gap-9 mt-0 min-[460px]:mt-[4%] landscape:gap-0"
+              id="slideFinal"
             >
               <div
-                class="flex justify-center items-center landscape:justify-start slideWidth"
+                class="flex justify-center items-center slideWidth"
               >
                 <img
-                  class="w-[75vw] landscape:w-[50%] landscape:scale-75"
+                  class="w-[75vw] landscape:w-[90%] landscape:scale-75"
                   alt=""
                   id="finalImg"
                   src="./Nutcom-Exports/Nuts-Compiled.png"
                 />
               </div>
-              <div class="flex justify-center items-center landscape:hidden">
+              <div class="flex justify-center items-center">
                 <button
-                  class="cta w-[50%] min-[460px]:w-[100%]"
+                  class="cta w-[50%] min-[460px]:w-[100%] landscape:w-[65%]"
                   onclick="mraid.open()"
                 >
                   <img class="btn_shopnow" alt="Shop Now" width="" />
@@ -789,6 +803,21 @@
       const filterImg = (arr, index) => {
         console.log(arr, index, "arr, index");
         const category = arr[0].dataset.category;
+        if (category == 2) {
+          if (window.matchMedia("(orientation: landscape)").matches) {
+            const slideFinal = document.getElementsByClassName("slide");
+            console.log(slideFinal, "slideFinal");
+            const slide4 = document.getElementById("slide4");
+            slide4.classList.add("hideSlide");
+            setTimeout(() => {
+              Array.from(slideFinal).forEach((slide) => {
+                slide.style.width = "50vw";
+              });
+            }, 300);
+          } else {
+            console.log("Portrait mode");
+          }
+        }
         const cardClasses = [
           "peanuts_card_",
           "almond_card_",
@@ -803,7 +832,7 @@
                 card.classList.add(cardClasses[i] + rowNum);
               });
             }
-            // console.log(`cart-${index}`)
+         
             const cart = document.getElementById(`cart-${index + 1}`);
             cart.classList.remove("opacity-0");
             cart.classList.add("opacity-100");
