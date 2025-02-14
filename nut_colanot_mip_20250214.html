@@ -6,6 +6,12 @@
     <title>Document</title>
     <link rel="stylesheet" href="./output.css" />
     <style>
+      :root {
+        --animation-delay: 0.5s;
+      }
+      .delay{
+        animation-delay: 0.6s;
+      }
       .category img {
         width: 100%;
       }
@@ -72,24 +78,27 @@
         cursor: pointer;
         animation: pulseHeader 1s ease-in-out;
       }
-      .card-showUP{
-
-      }
       .showUp {
         border-radius: 100%;
         opacity: 0;
-        animation: showUp 1s ease-in-out;
+        animation: showUp 0.6s ease-in-out;
         animation-fill-mode: forwards;
-        animation-delay: 1s;
+        animation-delay: 0.6s;
       }
       @keyframes showUp {
         0% {
           opacity: 0;
           border-radius: 100%;
+          scale: 0.5;
+        }
+        20% {
+          opacity: 0.3;
+          scale: 0.7;
         }
         100% {
           opacity: 1;
           border-radius: 0%;
+          scale: 1;
         }
       }
 
@@ -271,7 +280,7 @@
 
       .card {
         width: 35%;
-        background-color: #ff6146;
+        /* background-color: #ff6146; */
       }
 
       .final_page {
@@ -383,15 +392,38 @@
         }
       }
 
+      @keyframes cardShowUp {
+        0% {
+          scale: 0.5;
+        }
+        100% {
+          scale: 1;
+        }
+      }
+
       .switch {
         position: absolute;
         transition: all 1.5s ease-in;
         transform: translateX(0) translateY(0);
       }
-      
+      .card-showUP {
+        animation: cardShowUp 0.6s ease-in;
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes hideCard {
+        0% {
+          scale: 1;
+        }
+        100% {
+          scale: 0;
+          visibility: hidden;
+        }
+      }
       .hide {
-        animation: pulseS 1s ease-in reverse;
-        visibility: hidden;
+        animation: hideCard 0.3s ease-in;
+        animation-fill-mode: forwards;
+        /* visibility: hidden; */
         pointer-events: none;
       }
       body {
@@ -422,10 +454,10 @@
                 <img class="logo" alt="" />
               </div>
               <div class="card_container">
-                <img class="card card1 content1" alt="" />
-                <img class="card card1 content1" alt="" />
-                <img class="card card1 content1" alt="" />
-                <img class="card card1 content1" alt="" />
+                <img class="card card1  card-showUP" alt="" src="./Nutcom-Exports/Category/1.png" />
+                <img class="card card1  card-showUP" alt="" src="./Nutcom-Exports/Category/2.png" />
+                <img class="card card1  card-showUP" alt="" src="./Nutcom-Exports/Category/3.png" />
+                <img class="card card1  card-showUP" alt="" src="./Nutcom-Exports/Category/4.png" />
               </div>
             </div>
             <div class="slide">
@@ -433,6 +465,10 @@
                 <img class="logo" alt="" />
               </div>
               <div class="card_container">
+                <img class="card card2 content1" alt="" />
+                <img class="card card2 content1" alt="" />
+                <img class="card card2 content1" alt="" />
+                <img class="card card2 content1" alt="" />
                 <img class="card card2 content1" alt="" />
                 <img class="card card2 content1" alt="" />
                 <img class="card card2 content1" alt="" />
@@ -454,6 +490,7 @@
                 <img class="card card3 content1" alt="" data-index="0" />
               </div>
             </div>
+            
             <div class="slide">
               <div class="final_page">
                 <img class="content1" alt="" id="finalImg" />
@@ -498,10 +535,20 @@
       const filterImg = (arr, index) => {
         console.log(arr, index, "arr, index");
         arr.forEach((card, i) => {
-          if(card.dataset.card === '0'){
-            const finalImg = document.getElementById("finalImg")
-            finalImg.classList.add("showUp")
+          if (card.dataset.card === "0") {
+            const finalImg = document.getElementById("finalImg");
+            finalImg.classList.add("showUp");
           }
+          // card.classList.add("card-showUP");
+          // if (
+          //   card.classList.contains("card1")
+          // ) {
+          //   const card1 = document.querySelectorAll(".card2");
+          //   card1.forEach((card) => {
+          //     card.classList.add("delay");
+          //     card.classList.add("card-showUP");
+          //   });
+          // }
           if (i !== index) {
             console.log(card, "card-hide");
             card.classList.add("hide");
@@ -509,11 +556,10 @@
             console.log(card.classList, "card-else");
             const getTitle = slide[currentIndex].firstElementChild;
             console.log(getTitle, "title");
-
+            card.classList.remove("card-showUP");
             card.classList.add("pulse-img");
             if (getTitle) getTitle.classList.add("pulse-header");
           }
-          
         });
       };
 
