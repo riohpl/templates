@@ -370,9 +370,11 @@
         .content_container {
           flex-direction: row;
         }
+
         #content {
-          background: none;
+          background-image: none !important;
         }
+
         .description_container {
           flex: 1;
           height: 100%;
@@ -479,6 +481,11 @@
           width: 68%;
         }
       }
+      /* @media screen and (min-width: 460px) and (orientation: landscape) {
+        .description_container {
+          background-size: cover;
+        }
+      } */
       .switch {
         position: absolute;
         transition: all 1.5s ease-in;
@@ -536,11 +543,10 @@
         }
       }
 
-      .showCard{
+      .showCard {
         animation: hideSlide 0.3s ease-in reverse;
         animation-fill-mode: forwards;
       }
-    
     </style>
   </head>
 
@@ -757,9 +763,7 @@
               class="slide h-screen flex justify-center items-center gap-9 mt-0 min-[460px]:mt-[4%] landscape:gap-3"
               id="slideFinal"
             >
-              <div
-                class="flex justify-center items-center slideWidth"
-              >
+              <div class="flex justify-center items-center slideWidth">
                 <img
                   class="w-[75vw] landscape:w-[75%] landscape:scale-75"
                   alt=""
@@ -808,7 +812,7 @@
       const filterImg = (arr, index) => {
         console.log(arr, index, "arr, index");
         const category = arr[0].dataset.category;
-     
+
         if (category == 2) {
           const finalImg = document.getElementById("finalImg");
           finalImg.classList.add("showUp");
@@ -842,7 +846,7 @@
                 card.classList.add(cardClasses[i] + rowNum);
               });
             }
-         
+
             const cart = document.getElementById(`cart-${index + 1}`);
             cart.classList.remove("opacity-0");
             cart.classList.add("opacity-100");
