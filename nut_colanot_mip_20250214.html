@@ -6,14 +6,66 @@
     <title>Document</title>
     <link rel="stylesheet" href="./output.css" />
     <style>
+      .almond_card_1 {
+        content: url("./Nutcom-Exports/almonds/1.png");
+      }
+      .almond_card_2 {
+        content: url("./Nutcom-Exports/almonds/2.png");
+      }
+      .almond_card_3 {
+        content: url("./Nutcom-Exports/almonds/3.png");
+      }
+      .almond_card_4 {
+        content: url("./Nutcom-Exports/almonds/4.png");
+      }
+
+      .cashews_card_1 {
+        content: url("Nutcom-Exports/cashews/1.png");
+      }
+      .cashews_card_2 {
+        content: url("Nutcom-Exports/cashews/2.png");
+      }
+      .cashews_card_3 {
+        content: url("Nutcom-Exports/cashews/3.png");
+      }
+      .cashews_card_4 {
+        content: url("Nutcom-Exports/cashews/4.png");
+      }
+
+      .peanuts_card_1 {
+        content: url("Nutcom-Exports/peanuts/1.png");
+      }
+      .peanuts_card_2 {
+        content: url("Nutcom-Exports/peanuts/2.png");
+      }
+      .peanuts_card_3 {
+        content: url("Nutcom-Exports/peanuts/3.png");
+      }
+      .peanuts_card_4 {
+        content: url("Nutcom-Exports/peanuts/4.png");
+      }
+
+      .pecans_card_1 {
+        content: url("Nutcom-Exports/pecans/1.png");
+      }
+      .pecans_card_2 {
+        content: url("Nutcom-Exports/pecans/2.png");
+      }
+      .pecans_card_3 {
+        content: url("Nutcom-Exports/pecans/3.png");
+      }
+      .pecans_card_4 {
+        content: url("Nutcom-Exports/pecans/4.png");
+      }
+
       :root {
         --animation-delay: 0.5s;
       }
-      .delay{
+      .delay {
         animation-delay: 0.6s;
       }
       .category img {
-        width: 100%;
+        width: 66%;
       }
       .logo {
         content: url("data:image/jpeg;base64,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");
@@ -221,7 +273,7 @@
       }
 
       .main_container {
-        background: white;
+        background: #d8f1e5;
         display: flex;
         flex-direction: column;
         overflow: hidden;
@@ -246,6 +298,7 @@
         width: 100%;
         display: flex;
         overflow: hidden;
+        /* margin-top: 50%; */
       }
 
       .slider {
@@ -260,11 +313,13 @@
         display: flex;
         flex-direction: column;
         position: relative;
+        margin-top: 14%;
       }
 
       .category {
-        height: 20%;
+        /* height: 20%; */
         display: flex;
+        justify-content: center;
         align-items: center;
       }
 
@@ -429,6 +484,20 @@
       body {
         margin: 0;
       }
+      #content {
+        background-image: url("Nutcom-Exports/BG.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      main {
+        background-color: #d8f1e5;
+      }
+      .mt-0 {
+        margin-top: 0;
+      }
+      .active{
+        
+      }
     </style>
   </head>
 
@@ -451,49 +520,132 @@
           <div class="slider">
             <div class="slide">
               <div class="category">
-                <img alt="" />
+                <img alt="" src="/Nutcom-Exports/Choose Category.png" />
               </div>
               <div class="card_container">
-                <img class="card card1  card-showUP" alt="" src="./Nutcom-Exports/Category/1.png" />
-                <img class="card card1  card-showUP" alt="" src="./Nutcom-Exports/Category/2.png" />
-                <img class="card card1  card-showUP" alt="" src="./Nutcom-Exports/Category/3.png" />
-                <img class="card card1  card-showUP" alt="" src="./Nutcom-Exports/Category/4.png" />
+                <img
+                  class="card card1 card-showUP"
+                  alt=""
+                  src="./Nutcom-Exports/Category/1.png"
+                  data-category="0"
+                />
+                <img
+                  class="card card1 card-showUP"
+                  alt=""
+                  data-category="0"
+                  src="./Nutcom-Exports/Category/2.png"
+                />
+                <img
+                  class="card card1 card-showUP"
+                  alt=""
+                  src="./Nutcom-Exports/Category/3.png"
+                  data-category="0"
+                />
+                <img
+                  class="card card1 card-showUP"
+                  alt=""
+                  src="./Nutcom-Exports/Category/4.png"
+                  data-category="0"
+                />
               </div>
             </div>
             <div class="slide">
               <div class="category">
-                <img class="logo" alt="" />
+                <img src="./Nutcom-Exports/Choose Variant.png" />
               </div>
               <div class="card_container">
-                <img class="card card2 content1" alt="" />
-                <img class="card card2 content1" alt="" />
-                <img class="card card2 content1" alt="" />
-                <img class="card card2 content1" alt="" />
-                <img class="card card2 content1" alt="" />
-                <img class="card card2 content1" alt="" />
-                <img class="card card2 content1" alt="" />
-                <img class="card card2 content1" alt="" />
-                <img class="card card2 content1" alt="" />
-                <img class="card card2 content1" alt="" />
-                <img class="card card2 content1" alt="" />
-                <img class="card card2 content1" alt="" />
+                <img
+                  class="card card2"
+                  alt=""
+                  src="./Nutcom-Exports/Variant - Almonds/1.png"
+                />
+                <img
+                  class="card card2"
+                  alt=""
+                  src="./Nutcom-Exports/Variant - Almonds/2.png"
+                />
+                <img
+                  class="card card2"
+                  alt=""
+                  src="./Nutcom-Exports/Variant - Almonds/3.png"
+                />
+                <img
+                  class="card card2"
+                  alt=""
+                  src="./Nutcom-Exports/Variant - Almonds/4.png"
+                />
               </div>
             </div>
             <div class="slide">
               <div class="category">
-                <img class="logo" alt="" />
+                <img alt="" src="/Nutcom-Exports/Choose Category.png" />
               </div>
               <div class="card_container">
-                <img class="card card3 content1" alt="" data-card="0" />
-                <img class="card card3 content1" alt="" data-index="0" />
-                <img class="card card3 content1" alt="" data-index="0" />
-                <img class="card card3 content1" alt="" data-index="0" />
+                <img
+                  class="card card3 card-showUP"
+                  alt=""
+                  src="./Nutcom-Exports/Category/1.png"
+                  data-category="1"
+                />
+                <img
+                  class="card card3 card-showUP"
+                  alt=""
+                  src="./Nutcom-Exports/Category/2.png"
+                  data-category="1"
+                />
+                <img
+                  class="card card3 card-showUP"
+                  alt=""
+                  src="./Nutcom-Exports/Category/3.png"
+                  data-category="1"
+                />
+                <img
+                  class="card card3 card-showUP"
+                  alt=""
+                  src="./Nutcom-Exports/Category/4.png"
+                  data-category="1"
+                />
               </div>
             </div>
-            
             <div class="slide">
+              <div class="category">
+                <img
+                  class=""
+                  alt=""
+                  src="./Nutcom-Exports/Choose Variant.png"
+                />
+              </div>
+              <div class="card_container">
+                <img
+                  class="card card4"
+                  alt=""
+                  src="./Nutcom-Exports/Variant - Almonds/1.png"
+                />
+                <img
+                  class="card card4"
+                  alt=""
+                  src="./Nutcom-Exports/Variant - Almonds/2.png"
+                />
+                <img
+                  class="card card4"
+                  alt=""
+                  src="./Nutcom-Exports/Variant - Almonds/3.png"
+                />
+                <img
+                  class="card card4"
+                  alt=""
+                  src="./Nutcom-Exports/Variant - Almonds/4.png"
+                />
+              </div>
+            </div>
+            <div class="slide mt-0">
               <div class="final_page">
-                <img class="content1" alt="" id="finalImg" />
+                <img
+                  class=""
+                  alt=""
+                  id="finalImg"
+                  src="./Nutcom-Exports/Nuts-Compiled.png"
+                />
               </div>
               <!-- <div class="btn_container">
                 <button
@@ -512,7 +664,8 @@
       const img1 = document.querySelectorAll(".card1");
       const img2 = document.querySelectorAll(".card2");
       const img3 = document.querySelectorAll(".card3");
-      const AllImg = [img1, img2, img3];
+      const img4 = document.querySelectorAll(".card4");
+      const AllImg = [img1, img2, img3, img4];
 
       const card = document.querySelectorAll(".card");
       const slider = document.querySelector(".slider");
@@ -534,6 +687,33 @@
 
       const filterImg = (arr, index) => {
         console.log(arr, index, "arr, index");
+        const category = arr[0].dataset.category;
+        const cardClasses = [
+          "peanuts_card_",
+          "almond_card_",
+          "cashews_card_",
+          "pecans_card_",
+        ];
+        if (category == 0) {
+          for (let i = 0; i <= 3; i++) {
+            if (index == i) {
+              img2.forEach((card, index) => {
+                const rowNum = index + 1;
+                card.classList.add(cardClasses[i] + rowNum);
+              });
+            }
+          }
+        }
+        if (category == 1) {
+          for (let i = 0; i <= 3; i++) {
+            if (index == i) {
+              img4.forEach((card, index) => {
+                const rowNum = index + 1;
+                card.classList.add(cardClasses[i] + rowNum);
+              });
+            }
+          }
+        }
         arr.forEach((card, i) => {
           if (card.dataset.card === "0") {
             const finalImg = document.getElementById("finalImg");
@@ -549,11 +729,13 @@
           //     card.classList.add("card-showUP");
           //   });
           // }
+
           if (i !== index) {
             console.log(card, "card-hide");
             card.classList.add("hide");
           } else {
             console.log(card.classList, "card-else");
+            console.log(index, "index");
             const getTitle = slide[currentIndex].firstElementChild;
             console.log(getTitle, "title");
             card.classList.remove("card-showUP");
@@ -568,7 +750,7 @@
         let imgHand = document.createElement("img");
         // imgHand.classList.add("hand");
         // imgHandContainer.classList.add("hand_container");
-        imgHandContainer.appendChild(imgHand);
+        // imgHandContainer.appendChild(imgHand);
         slide[index].appendChild(imgHandContainer);
         item.forEach((card, i) => {
           // console.log(card);
