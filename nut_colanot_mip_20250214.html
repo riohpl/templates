@@ -12,7 +12,7 @@
       }
       .almond_card_2 {
         content: url("./Nutcom-Exports/almonds/2.png");
-      }d
+      }
       .almond_card_3 {
         content: url("./Nutcom-Exports/almonds/3.png");
       }
@@ -535,13 +535,18 @@
           opacity: 0;
         }
       }
+
+      .showCard{
+        animation: hideSlide 0.3s ease-in reverse;
+        animation-fill-mode: forwards;
+      }
     
     </style>
   </head>
 
   <body>
     <main class="main_container">
-      <section id="content" class="content_container">
+      <section id="content" class="content_container landscape:bg-transparent">
         <div class="description_container">
           <!-- <img class="logo" alt="" />
           <img class="description" alt="" />
@@ -749,14 +754,14 @@
               </div>
             </div>
             <div
-              class="slide h-screen flex justify-center items-center gap-9 mt-0 min-[460px]:mt-[4%] landscape:gap-0"
+              class="slide h-screen flex justify-center items-center gap-9 mt-0 min-[460px]:mt-[4%] landscape:gap-3"
               id="slideFinal"
             >
               <div
                 class="flex justify-center items-center slideWidth"
               >
                 <img
-                  class="w-[75vw] landscape:w-[90%] landscape:scale-75"
+                  class="w-[75vw] landscape:w-[75%] landscape:scale-75"
                   alt=""
                   id="finalImg"
                   src="./Nutcom-Exports/Nuts-Compiled.png"
@@ -803,12 +808,17 @@
       const filterImg = (arr, index) => {
         console.log(arr, index, "arr, index");
         const category = arr[0].dataset.category;
+     
         if (category == 2) {
+          const finalImg = document.getElementById("finalImg");
+          finalImg.classList.add("showUp");
           if (window.matchMedia("(orientation: landscape)").matches) {
             const slideFinal = document.getElementsByClassName("slide");
             console.log(slideFinal, "slideFinal");
             const slide4 = document.getElementById("slide4");
             slide4.classList.add("hideSlide");
+            const finalImg = document.getElementById("finalImg");
+            finalImg.classList.add("showUp");
             setTimeout(() => {
               Array.from(slideFinal).forEach((slide) => {
                 slide.style.width = "50vw";
@@ -867,7 +877,6 @@
           //     card.classList.add("card-showUP");
           //   });
           // }
-
           if (i !== index) {
             console.log(card, "card-hide");
             card.classList.add("hide");
