@@ -5,6 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stepper with Progress Bar</title>
     <style>
+      .deep_dark_1 {
+        content: url("EXPORTS/deep_dark/deep_dark_1.png");
+      }
+      .deep_dark_2 {
+        content: url("EXPORTS/deep_dark/deep_dark_2.png");
+      }
+      .deep_dark_3 {
+        content: url("EXPORTS/deep_dark/deep_dark_3.png");
+      }
+      .deep_dark_4 {
+        content: url("EXPORTS/deep_dark/deep_dark_4.png");
+      }
+
+      .deep_1 {
+        content: url("EXPORTS/deep/deep_1.png");
+      }
+      .deep_2 {
+        content: url("EXPORTS/deep/deep_2.png");
+      }
+      .deep_3 {
+        content: url("EXPORTS/deep/deep_3.png");
+      }
+      .deep_4 {
+        content: url("EXPORTS/deep/deep_4.png");
+      }
+
+      .tan_deep_1 {
+        content: url("EXPORTS/tan_deep/tan_deep_1.png");
+      }
+      .tan_deep_2 {
+        content: url("EXPORTS/tan_deep/tan_deep_2.png");
+      }
+      .tan_deep_3 {
+        content: url("EXPORTS/tan_deep/tan_deep_3.png");
+      }
+      .tan_deep_4 {
+        content: url("EXPORTS/tan_deep/tan_deep_4.png");
+      }
+
+      .tan_1 {
+        content: url("EXPORTS/tan/tan_1.png");
+      }
+      .tan_2 {
+        content: url("EXPORTS/tan/tan_2.png");
+      }
+      .tan_3 {
+        content: url("EXPORTS/tan/tan_3.png");
+      }
+      .tan_4 {
+        content: url("EXPORTS/tan/tan_4.png");
+      }
+
+      .medium_1 {
+        content: url("EXPORTS/medium/medium_1.png");
+      }
+      .medium_2 {
+        content: url("EXPORTS/medium/medium_2.png");
+      }
+      .medium_3 {
+        content: url("EXPORTS/medium/medium_3.png");
+      }
+      .medium_4 {
+        content: url("EXPORTS/medium/medium_4.png");
+      }
+
+      .ligth_1 {
+        content: url("EXPORTS/light/light_1.png");
+      }
+      .light_2 {
+        content: url("EXPORTS/light/light_2.png");
+      }
+      .light_3 {
+        content: url("EXPORTS/light/light_3.png");
+      }
+      .light_4 {
+        content: url("EXPORTS/light/light_4.png");
+      }
+
+      .fair_1 {
+        content: url("EXPORTS/fair/fair_1.png");
+      }
+      .fair_2 {
+        content: url("EXPORTS/fair/fair_2.png");
+      }
+      .fair_3 {
+        content: url("EXPORTS/fair/fair_3.png");
+      }
+      .fair_4 {
+        content: url("EXPORTS/fair/fair_4.png");
+      }
+
       .checkbox-icon {
         content: url("./chcck.png");
       }
@@ -40,8 +131,8 @@
       }
       .step-marker {
         position: absolute;
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
         background: #ccc;
         border-radius: 50%;
         display: flex;
@@ -49,6 +140,7 @@
         align-items: center;
         font-weight: bold;
         color: white;
+        font-size: 12px;
         transform: translate(-50%, -50%);
       }
       .step-marker.active {
@@ -56,17 +148,15 @@
       }
       .step-content {
         margin-top: 50px;
-        padding: 20px;
       }
       button {
         margin-top: 20px;
-        padding: 10px 20px;
+        padding: 10px 48px;
         border: none;
         background: #ff0283;
         color: white;
         font-size: 16px;
         cursor: pointer;
-        border-radius: 5px;
       }
       button:disabled {
         background: #ccc;
@@ -127,6 +217,25 @@
       .active-outline {
         border: 1px solid #ff0283;
       }
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .active-img {
+        border: 1px solid #ff0283;
+        border-radius: 100%;
+      }
+      .w-100 {
+        width: 100%;
+      }
+      .btn-container {
+        position: absolute;
+        bottom: 2%;
+        display: flex;
+        justify-content: space-between;
+        width: 80vw;
+      }
     </style>
   </head>
   <body>
@@ -137,10 +246,14 @@
       <div class="container">
         <div class="progress-container">
           <div class="progress"></div>
-          <div class="step-marker active" style="left: 0%"></div>
-          <div class="step-marker" style="left: 33%">2</div>
-          <div class="step-marker" style="left: 66%">3</div>
-          <div class="step-marker" style="left: 100%"></div>
+          <div
+            class="step-marker active"
+            style="left: 0%"
+            id="stepMarker_1"
+          ></div>
+          <div class="step-marker" style="left: 33%" id="stepMarker_2">2</div>
+          <div class="step-marker" style="left: 66%" id="stepMarker_3">3</div>
+          <div class="step-marker" style="left: 100%" id="stepMarker_4"></div>
         </div>
         <div class="step-content" id="stepContent">
           <div class="step" id="step-0">
@@ -349,6 +462,13 @@
             </div>
           </div>
           <div class="step" id="step-6" style="display: none">
+            <div class="title">
+              <img
+                src="./assets power redo/assets power redo/step 7/Which areas on your face have the most prominent fine lines or_.png"
+                alt=""
+                class="answer-title"
+              />
+            </div>
             <div class="answer-checkbox-container">
               <div class="answer-checkbox check-6" onclick="toggleCheck(this)">
                 <img class="checkbox-icon" alt="" />
@@ -383,7 +503,7 @@
           <div class="step" id="step-7" style="display: none">
             <div class="title">
               <img
-                src="./assets power redo/assets power redo/step 4/tell us about.png"
+                src="./assets power redo/step 6 How would you describe your pores.png"
                 alt=""
                 class="answer-title"
               />
@@ -418,6 +538,13 @@
             </div>
           </div>
           <div class="step" id="step-8" style="display: none">
+            <div class="title">
+              <img
+                src="./assets power redo/assets power redo/step 8/Which skincare products do you use at least once a week_.png"
+                alt=""
+                class="answer-title"
+              />
+            </div>
             <div class="answer-checkbox-container">
               <div class="answer-checkbox check-8" onclick="toggleCheck(this)">
                 <img class="checkbox-icon" alt="" />
@@ -470,6 +597,13 @@
             </div>
           </div>
           <div class="step" id="step-9" style="display: none">
+            <div class="title">
+              <img
+                src="./assets power redo/assets power redo/step 9/What are you looking for in a Wrinkle Filler_.png"
+                alt=""
+                class="answer-title"
+              />
+            </div>
             <div class="answer-checkbox-container">
               <div class="answer-checkbox check-9" onclick="toggleCheck(this)">
                 <img class="checkbox-icon" alt="" />
@@ -551,10 +685,37 @@
             </div>
           </div>
           <div class="step" id="step-11" style="display: none">
-            <h3>Step 4 Content</h3>
-            <input type="checkbox" /> Option 8
+            <div class="title">
+              <img
+                src="./assets power redo/assets power redo/step 10/Be real_ How long does your skincare routine take_.png"
+                alt=""
+                class="answer-title"
+              />
+            </div>
+            <div class="answer" onclick="toggleActive(this)">
+              <img src="./calendar/Every day.png" alt="" />
+            </div>
+            <div class="answer" onclick="toggleActive(this)">
+              <img src="./calendar/Few times a week.png" alt="" />
+            </div>
+            <div class="answer" onclick="toggleActive(this)">
+              <img src="./calendar/Only for special occasions.png" alt="" />
+            </div>
+            <div class="answer" onclick="toggleActive(this)">
+              <img src="./calendar/Rarely but open to trying it.png" alt="" />
+            </div>
+            <div class="answer" onclick="toggleActive(this)">
+              <img src="./calendar/Never, I‘m all natural.png" alt="" />
+            </div>
           </div>
           <div class="step" id="step-12" style="display: none">
+            <div class="title">
+              <img
+                src="./assets power redo/step12-title.png"
+                alt=""
+                class="w-100"
+              />
+            </div>
             <div class="answer-checkbox-container">
               <div class="answer-checkbox check-12" onclick="toggleCheck(this)">
                 <img class="checkbox-icon" alt="" />
@@ -591,42 +752,295 @@
             </div>
           </div>
           <div class="step" id="step-13" style="display: none">
-            <h3>Step 4 Content</h3>
-            <input type="checkbox" /> Option 8
+            <img
+              src="./assets power redo/Il Makiage MIP 1 Assets/Il Makiage MIP 1 Assets/How often do you wear make up/title-skintone.png"
+              class="w-100"
+            />
           </div>
           <div class="step" id="step-14" style="display: none">
-            <h3>Step 4 Content</h3>
-            <input type="checkbox" /> Option 8
+            <div class="title">
+              <img
+                class="w-100"
+                src="./assets power redo/Il Makiage MIP 1 Assets/Il Makiage MIP 1 Assets/Weve got 50 shades, lets find yours/[1] We’ve got 50 shades, let’s find yours. Which one of these is cl.png"
+                alt=""
+              />
+            </div>
+            <div class="grid-2">
+              <div>
+                <img
+                  src="./EXPORTS/1.png"
+                  class="w-100 skin-tone"
+                  onclick="pickMainTone(this)"
+                  data-target="tone-1"
+                />
+              </div>
+              <div>
+                <img
+                  src="./EXPORTS/2.png"
+                  class="w-100 skin-tone"
+                  onclick="pickMainTone(this)"
+                  data-target="tone-2"
+                />
+              </div>
+              <div>
+                <img
+                  src="./EXPORTS/3.png"
+                  class="w-100 skin-tone"
+                  onclick="pickMainTone(this)"
+                  data-target="tone-3"
+                />
+              </div>
+              <div>
+                <img
+                  src="./EXPORTS/4.png"
+                  class="w-100 skin-tone"
+                  onclick="pickMainTone(this)"
+                  data-target="tone-4"
+                />
+              </div>
+              <div>
+                <img
+                  src="./EXPORTS/5.png"
+                  class="w-100 skin-tone"
+                  onclick="pickMainTone(this)"
+                  data-target="tone-5"
+                />
+              </div>
+              <div>
+                <img
+                  src="./EXPORTS/6.png"
+                  class="w-100 skin-tone"
+                  onclick="pickMainTone(this)"
+                  data-target="tone-6"
+                />
+              </div>
+              <div>
+                <img
+                  src="./EXPORTS/7.png"
+                  class="w-100 skin-tone"
+                  onclick="pickMainTone(this)"
+                  data-target="tone-7"
+                />
+              </div>
+            </div>
           </div>
           <div class="step" id="step-15" style="display: none">
-            <h3>Step 4 Content</h3>
-            <input type="checkbox" /> Option 8
+            <div class="title">
+              <img
+                src="./[2] Love it. Let's get a bit more precise. Which one of these most_.png"
+                alt=""
+                class="w-100"
+              />
+            </div>
+            <div class="grid-2" id="tone-images-container"></div>
           </div>
           <div class="step" id="step-16" style="display: none">
-            <h3>Step 4 Content</h3>
-            <input type="checkbox" /> Option 8
+            <div class="title">
+              <img
+                src="./assets power redo/assets 2 (2)/titles 14-19/step 14 title.png"
+                alt=""
+                class="answer-title"
+              />
+            </div>
+            <div class="answer-checkbox-container">
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">
+                  I don’t know, help me decide
+                </div>
+              </div>
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">Balanced / Neutral</div>
+              </div>
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">Pink / Red / Cool</div>
+              </div>
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">Yellow / Golden / Warm</div>
+              </div>
+            </div>
           </div>
           <div class="step" id="step-17" style="display: none">
-            <h3>Step 4 Content</h3>
-            <input type="checkbox" /> Option 8
+            <div class="title">
+              <img
+                src="./assets power redo/assets 2 (2)/titles 14-19/step 15 title.png"
+                alt=""
+                class="answer-title"
+              />
+            </div>
+            <div class="answer-checkbox-container">
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">More blue-purple</div>
+              </div>
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">More blue-green</div>
+              </div>
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">
+                  I see different colors on each
+                </div>
+              </div>
+            </div>
           </div>
           <div class="step" id="step-18" style="display: none">
-            <h3>Step 4 Content</h3>
-            <input type="checkbox" /> Option 8
-          </div>
-          <div class="step" id="step-19" style="display: none">
-            <h3>Step 4 Content</h3>
-            <input type="checkbox" /> Option 8
-          </div>
-          <div class="step" id="step-20" style="display: none">
-            <h3>Step 4 Content</h3>
-            <input type="checkbox" /> Option 8
+            <div class="title">
+              <img
+                src="./assets power redo/assets 2 (2)/titles 14-19/step 16 title.png"
+                alt=""
+                class="answer-title"
+              />
+            </div>
+            <div class="answer-checkbox-container">
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">Silver</div>
+              </div>
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">Gold</div>
+              </div>
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">
+                  Umm, I look good in everything
+                </div>
+              </div>
+            </div>
           </div>
           <div class="step" id="step-21" style="display: none">
-            <h3>Step 4 Content</h3>
-            <input type="checkbox" /> Option 8
+            <div class="title">
+              <img
+                src="./assets power redo/assets 2 (2)/titles 14-19/step 17 title.png"
+                alt=""
+                class="answer-title"
+              />
+            </div>
+            <div class="answer-checkbox-container">
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">I burn, fast</div>
+              </div>
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">
+                  I tan but can burn if I stay out too long
+                </div>
+              </div>
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">I tan / darken</div>
+              </div>
+            </div>
+          </div>
+          <div class="step" id="step-22" style="display: none">
+            <div class="title">
+              <img
+                src="./assets power redo/assets 2 (2)/titles 14-19/step 18 title.png"
+                alt=""
+                class="answer-title"
+              />
+            </div>
+            <div class="answer-checkbox-container">
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">Lighter</div>
+              </div>
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">Darker</div>
+              </div>
+            </div>
+          </div>
+          <div class="step" id="step-23" style="display: none">
+            <div class="title">
+              <img
+                src="./assets power redo/assets 2 (2)/titles 14-19/step 19 title.png"
+                alt=""
+                class="answer-title"
+              />
+            </div>
+            <div class="answer-checkbox-container">
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">UNDER 21</div>
+              </div>
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">21-25</div>
+              </div>
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">26-35</div>
+              </div>
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">36-50</div>
+              </div>
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">50 & Up</div>
+              </div>
+            </div>
+          </div>
+          <div class="step" id="step-22" style="display: none">
+            <img src="./assets power redo/final_output.jpg" class="w-100" />
+            <div class="btn-cta">
+              <img
+                src="./assets power redo/CTA (2).png"
+                alt=""
+                style="width: 60%"
+              />
+            </div>
           </div>
         </div>
+      </div>
+      <div class="btn-container">
         <button id="backBtn" disabled>Back</button>
         <button id="nextBtn">Next</button>
       </div>
@@ -640,6 +1054,8 @@
       const steps = document.querySelectorAll(".step");
       const totalSteps = steps.length;
       const mainSteps = [0, 3, 6, 9];
+      let isChoiceActive = false;
+      let activePick = "";
       let currentStep = 0;
 
       nextBtn.addEventListener("click", () => {
@@ -648,14 +1064,20 @@
           currentStep++;
           steps[currentStep].style.display = "grid";
           progress.style.width = (currentStep / (totalSteps - 1)) * 100 + "%";
+          nextBtn.disabled = true;
           updateMarkers();
         }
+        if (activePick === "tone-1") {
+        }
+        generateToneImages();
         backBtn.disabled = false;
         if (currentStep === totalSteps - 1) {
           nextBtn.disabled = true;
         }
       });
-
+      if (!isChoiceActive) {
+        nextBtn.disabled = true;
+      }
       backBtn.addEventListener("click", () => {
         if (currentStep > 0) {
           steps[currentStep].style.display = "none";
@@ -664,12 +1086,13 @@
           progress.style.width = (currentStep / (totalSteps - 1)) * 100 + "%";
           updateMarkers();
         }
-        nextBtn.disabled = false;
         if (currentStep === 0) {
           backBtn.disabled = true;
         }
       });
       function toggleActive(e) {
+        nextBtn.disabled = false;
+        isChoiceActive = true;
         const answers = document.querySelectorAll(".answer");
         answers.forEach((answer) => {
           answer.classList.remove("active-answer");
@@ -677,6 +1100,8 @@
         e.classList.toggle("active-answer");
       }
       function toggleActiveOutline(e) {
+        nextBtn.disabled = false;
+        isChoiceActive = true;
         const answers = document.querySelectorAll(".answer-outline");
         answers.forEach((answer) => {
           answer.classList.remove("active-outline");
@@ -684,6 +1109,8 @@
         e.classList.toggle("active-outline");
       }
       function toggleCheck(e) {
+        nextBtn.disabled = false;
+        isChoiceActive = true;
         const target = e.dataset.target;
         if (
           target === "uncheck" ||
@@ -746,27 +1173,97 @@
               break;
           }
         }
-
         e.classList.toggle("active-checkbox");
       }
+
+      function generateToneImages() {
+        let imageClasses = [];
+        if (activePick == "tone-1") {
+          imageClasses = ["fair_1", "fair_2", "fair_3", "fair_4"];
+        } else if (activePick == "tone-2") {
+          imageClasses = ["ligth_1", "light_2", "light_3", "light_4"];
+        } else if (activePick == "tone-3") {
+          imageClasses = ["medium_1", "medium_2", "medium_3", "medium_4"];
+        } else if (activePick == "tone-4") {
+          imageClasses = ["tan_1", "tan_2", "tan_3", "tan_4"];
+        } else if (activePick == "tone-5") {
+          imageClasses = [
+            "tan_deep_1",
+            "tan_deep_2",
+            "tan_deep_3",
+            "tan_deep_4",
+          ];
+        } else if (activePick == "tone-6") {
+          imageClasses = ["deep_1", "deep_2", "deep_3", "deep_4"];
+        } else if (activePick == "tone-7") {
+          imageClasses = [
+            "deep_dark_1",
+            "deep_dark_2",
+            "deep_dark_3",
+            "deep_dark_4",
+          ];
+        }
+
+        const container = document.getElementById("tone-images-container");
+        container.innerHTML = ""; // Clear any existing images
+        imageClasses.forEach((className) => {
+          const img = document.createElement("img");
+          img.className = className;
+          img.src = "";
+          img.classList.add("w-100");
+          img.onclick = () => {
+            pickMainTone(img);
+          };
+          container.appendChild(img);
+        });
+      }
+
+      function pickMainTone(e) {
+        nextBtn.disabled = false;
+        isChoiceActive = true;
+
+        console.log(e, "PICK MAIN TONE");
+        const tones = document.querySelectorAll(".skin-tone");
+        activePick = e.dataset.target;
+
+        console.log(activePick);
+        tones.forEach((tone) => {
+          console.log("REMOVES");
+          tone.classList.remove("active-img");
+        });
+        e.classList.add("active-img");
+      }
+
       function updateMarkers() {
         console.log("UPDATE MARKERS", currentStep);
-        stepMarkers.forEach((marker, index) => {
-          console.log();
-          if (currentStep === 7) {
-            marker.classList.add("active");
-          }
-          // if (
-          //   mainSteps.includes(currentStep) &&
-          //   mainSteps.indexOf(currentStep) === index
-          // ) {
-          //   console.log("ACTIVE", marker, currentStep, index);
-          //   // marker.classList.add("active");
-          // } else {
-          //   console.log("NOT ACTIVE", marker, currentStep, index);
-          //   marker.classList.remove("active");
-          // }
-        });
+        const firstMarker = document.querySelector("#stepMarker_1");
+        const secondMarker = document.querySelector("#stepMarker_2");
+        const thirdMarker = document.querySelector("#stepMarker_3");
+        const fourthMarker = document.querySelector("#stepMarker_4");
+        if (currentStep === 4 || currentStep == 13) {
+          nextBtn.disabled = false;
+        }
+        if (currentStep < 7) {
+          secondMarker.classList.remove("active");
+          thirdMarker.classList.remove("active");
+          fourthMarker.classList.remove("active");
+        }
+        if (currentStep < 15) {
+          thirdMarker.classList.remove("active");
+          fourthMarker.classList.remove("active");
+        }
+        if (currentStep < 22) {
+          fourthMarker.classList.remove("active");
+        }
+        if (currentStep === 7) {
+          secondMarker.classList.add("active");
+        } else if (currentStep === 15) {
+          thirdMarker.classList.add("active");
+        } else if (currentStep === 22) {
+          fourthMarker.classList.add("active");
+          const btnContainer = document.querySelector(".btn-container");
+          btnContainer.style.display = "none";
+        }
       }
     </script>
   </body>
