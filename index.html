@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stepper with Progress Bar</title>
     <style>
+      .checkbox-icon{
+        content: url("./chcck.png");
+      }
       .main-container {
         text-align: center;
         font-family: Arial, sans-serif;
@@ -91,6 +94,36 @@
         border: 1px solid #ff0283;
         background-color: #ff0283;
       }
+      .answer-checkbox-container {
+        display: grid;
+        gap: 5px;
+      }
+      .answer-checkbox {
+        display: flex;
+        align-items: center;
+        border: 1px solid #e4e4e4;
+        gap: 10px;
+        padding: 13px;
+      }
+      .answer-checkbox svg-icon {
+        width: 24px; /* Set a consistent width */
+        height: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #a5a5a5;
+      }
+      .answer-checkbox-text {
+        color: #504a5b;
+        text-align: start;
+      }
+      .active-checkbox {
+        border: 1px solid #ff0283;
+      }
+      .active-checkbox svg-icon {
+        background: #ff0283;
+        border: none;
+      }
     </style>
   </head>
   <body>
@@ -147,6 +180,13 @@
             </div>
           </div>
           <div class="step" id="step-1" style="display: none">
+            <div class="title">
+              <img
+                src="./assets power redo/assets power redo/step 2/About how many glasses of water do you drink per day_.png"
+                alt=""
+                class="answer-title"
+              />
+            </div>
             <div class="answer" onclick="toggleActive(this)">
               <img
                 src="./assets power redo/assets power redo/step 2/choices2/1.png"
@@ -173,34 +213,376 @@
             </div>
           </div>
           <div class="step" id="step-2" style="display: none">
+            <div class="title">
+              <img
+                src="./assets power redo/assets power redo/step 3/What is your local climate like_.png"
+                alt=""
+                class="answer-title"
+              />
+            </div>
             <div class="answer" onclick="toggleActive(this)">
               <img
-                src="./assets power redo/assets power redo/step 2/choices2/1.png"
+                src="./assets power redo/assets power redo/step 3/choices3/1.png"
                 alt=""
               />
             </div>
             <div class="answer" onclick="toggleActive(this)">
               <img
-                src="./assets power redo/assets power redo/step 2/choices2/2.png"
+                src="./assets power redo/assets power redo/step 3/choices3/2.png"
                 alt=""
               />
             </div>
             <div class="answer" onclick="toggleActive(this)">
               <img
-                src="./assets power redo/assets power redo/step 2/choices2/3.png"
+                src="./assets power redo/assets power redo/step 3/choices3/3.png"
                 alt=""
               />
             </div>
             <div class="answer" onclick="toggleActive(this)">
               <img
-                src="./assets power redo/assets power redo/step 2/choices2/4.png"
+                src="./assets power redo/assets power redo/step 3/choices3/4.png"
                 alt=""
               />
             </div>
           </div>
           <div class="step" id="step-3" style="display: none">
-            <h3>Step 2 Content</h3>
-            <input type="checkbox" /> Option 4
+            <div class="title">
+              <img
+                src="./assets power redo/assets power redo/step 4/tell us about.png"
+                alt=""
+                class="answer-title"
+              />
+            </div>
+            <div class="answer-checkbox-container">
+              <div class="answer-checkbox" onclick="toggleCheck(this)">
+                <svg-icon
+                  size="sm"
+                  _nghost-snk-c28=""
+                  role="img"
+                  class="ng-star-inserted fill-color svg-icon-check-fill"
+                  style="font-size: 24px"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 20"
+                    fit=""
+                    height="100%"
+                    width="100%"
+                    preserveAspectRatio="xMidYMid meet"
+                    focusable="false"
+                  >
+                    <path
+                      class="svg-fill"
+                      d="M0 2a2 2 0 012-2h16a2 2 0 012 2v16a2 2 0 01-2 2H2a2 2 0 01-2-2V2z"
+                    ></path>
+                    <path
+                      stroke="#fff"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5.357 9.643l3.929 4.286L15 6.07"
+                    ></path>
+                  </svg>
+                </svg-icon>
+                <div class="answer-checkbox-text">Dullness</div>
+              </div>
+              <div class="answer-checkbox" onclick="toggleCheck(this)">
+                <svg-icon
+                  size="sm"
+                  _nghost-snk-c28=""
+                  role="img"
+                  class="ng-star-inserted fill-color svg-icon-check-fill"
+                  style="font-size: 24px"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 20"
+                    fit=""
+                    height="100%"
+                    width="100%"
+                    preserveAspectRatio="xMidYMid meet"
+                    focusable="false"
+                  >
+                    <path
+                      class="svg-fill"
+                      d="M0 2a2 2 0 012-2h16a2 2 0 012 2v16a2 2 0 01-2 2H2a2 2 0 01-2-2V2z"
+                    ></path>
+                    <path
+                      stroke="#fff"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5.357 9.643l3.929 4.286L15 6.07"
+                    ></path>
+                  </svg>
+                </svg-icon>
+                <div class="answer-checkbox-text">Dryness or flakiness</div>
+              </div>
+              <div class="answer-checkbox" onclick="toggleCheck(this)">
+                <svg-icon
+                  size="sm"
+                  _nghost-snk-c28=""
+                  role="img"
+                  class="ng-star-inserted fill-color svg-icon-check-fill"
+                  style="font-size: 24px"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 20"
+                    fit=""
+                    height="100%"
+                    width="100%"
+                    preserveAspectRatio="xMidYMid meet"
+                    focusable="false"
+                  >
+                    <path
+                      class="svg-fill"
+                      d="M0 2a2 2 0 012-2h16a2 2 0 012 2v16a2 2 0 01-2 2H2a2 2 0 01-2-2V2z"
+                    ></path>
+                    <path
+                      stroke="#fff"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5.357 9.643l3.929 4.286L15 6.07"
+                    ></path>
+                  </svg>
+                </svg-icon>
+                <div class="answer-checkbox-text">
+                  Loss of volume or firmness
+                </div>
+              </div>
+              <div class="answer-checkbox" onclick="toggleCheck(this)">
+                <svg-icon
+                  size="sm"
+                  _nghost-snk-c28=""
+                  role="img"
+                  class="ng-star-inserted fill-color svg-icon-check-fill"
+                  style="font-size: 24px"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 20"
+                    fit=""
+                    height="100%"
+                    width="100%"
+                    preserveAspectRatio="xMidYMid meet"
+                    focusable="false"
+                  >
+                    <path
+                      class="svg-fill"
+                      d="M0 2a2 2 0 012-2h16a2 2 0 012 2v16a2 2 0 01-2 2H2a2 2 0 01-2-2V2z"
+                    ></path>
+                    <path
+                      stroke="#fff"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5.357 9.643l3.929 4.286L15 6.07"
+                    ></path>
+                  </svg>
+                </svg-icon>
+                <div class="answer-checkbox-text">Fine lines or wrinkles</div>
+              </div>
+              <div class="answer-checkbox" onclick="toggleCheck(this)">
+                <svg-icon
+                  size="sm"
+                  _nghost-snk-c28=""
+                  role="img"
+                  class="ng-star-inserted fill-color svg-icon-check-fill"
+                  style="font-size: 24px"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 20"
+                    fit=""
+                    height="100%"
+                    width="100%"
+                    preserveAspectRatio="xMidYMid meet"
+                    focusable="false"
+                  >
+                    <path
+                      class="svg-fill"
+                      d="M0 2a2 2 0 012-2h16a2 2 0 012 2v16a2 2 0 01-2 2H2a2 2 0 01-2-2V2z"
+                    ></path>
+                    <path
+                      stroke="#fff"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5.357 9.643l3.929 4.286L15 6.07"
+                    ></path>
+                  </svg>
+                </svg-icon>
+                <div class="answer-checkbox-text">
+                  Dark spots or discoloration
+                </div>
+              </div>
+              <div class="answer-checkbox" onclick="toggleCheck(this)">
+                <svg-icon
+                  size="sm"
+                  _nghost-snk-c28=""
+                  role="img"
+                  class="ng-star-inserted fill-color svg-icon-check-fill"
+                  style="font-size: 24px"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 20"
+                    fit=""
+                    height="100%"
+                    width="100%"
+                    preserveAspectRatio="xMidYMid meet"
+                    focusable="false"
+                  >
+                    <path
+                      class="svg-fill"
+                      d="M0 2a2 2 0 012-2h16a2 2 0 012 2v16a2 2 0 01-2 2H2a2 2 0 01-2-2V2z"
+                    ></path>
+                    <path
+                      stroke="#fff"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5.357 9.643l3.929 4.286L15 6.07"
+                    ></path>
+                  </svg>
+                </svg-icon>
+                <div class="answer-checkbox-text">Redness</div>
+              </div>
+              <div class="answer-checkbox" onclick="toggleCheck(this)">
+                <svg-icon
+                  size="sm"
+                  _nghost-snk-c28=""
+                  role="img"
+                  class="ng-star-inserted fill-color svg-icon-check-fill"
+                  style="font-size: 24px"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 20"
+                    fit=""
+                    height="100%"
+                    width="100%"
+                    preserveAspectRatio="xMidYMid meet"
+                    focusable="false"
+                  >
+                    <path
+                      class="svg-fill"
+                      d="M0 2a2 2 0 012-2h16a2 2 0 012 2v16a2 2 0 01-2 2H2a2 2 0 01-2-2V2z"
+                    ></path>
+                    <path
+                      stroke="#fff"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5.357 9.643l3.929 4.286L15 6.07"
+                    ></path>
+                  </svg>
+                </svg-icon>
+                <div class="answer-checkbox-text">Visible pores</div>
+              </div>
+              <div class="answer-checkbox" onclick="toggleCheck(this)">
+                <svg-icon
+                  size="sm"
+                  _nghost-snk-c28=""
+                  role="img"
+                  class="ng-star-inserted fill-color svg-icon-check-fill"
+                  style="font-size: 24px"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 20"
+                    fit=""
+                    height="100%"
+                    width="100%"
+                    preserveAspectRatio="xMidYMid meet"
+                    focusable="false"
+                  >
+                    <path
+                      class="svg-fill"
+                      d="M0 2a2 2 0 012-2h16a2 2 0 012 2v16a2 2 0 01-2 2H2a2 2 0 01-2-2V2z"
+                    ></path>
+                    <path
+                      stroke="#fff"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5.357 9.643l3.929 4.286L15 6.07"
+                    ></path>
+                  </svg>
+                </svg-icon>
+                <div class="answer-checkbox-text">Bumps and Blemishes</div>
+              </div>
+              <div class="answer-checkbox" onclick="toggleCheck(this)">
+                <svg-icon
+                  size="sm"
+                  _nghost-snk-c28=""
+                  role="img"
+                  class="ng-star-inserted fill-color svg-icon-check-fill"
+                  style="font-size: 24px"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 20"
+                    fit=""
+                    height="100%"
+                    width="100%"
+                    preserveAspectRatio="xMidYMid meet"
+                    focusable="false"
+                  >
+                    <path
+                      class="svg-fill"
+                      d="M0 2a2 2 0 012-2h16a2 2 0 012 2v16a2 2 0 01-2 2H2a2 2 0 01-2-2V2z"
+                    ></path>
+                    <path
+                      stroke="#fff"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5.357 9.643l3.929 4.286L15 6.07"
+                    ></path>
+                  </svg>
+                </svg-icon>
+                <div class="answer-checkbox-text">Sensitive skin</div>
+              </div>
+              <div
+                class="answer-checkbox"
+                onclick="toggleCheck(this)"
+                data-target="uncheck"
+              >
+                <svg-icon
+                  size="sm"
+                  _nghost-snk-c28=""
+                  role="img"
+                  class="ng-star-inserted fill-color svg-icon-check-fill"
+                  style="font-size: 24px"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 20"
+                    fit=""
+                    height="100%"
+                    width="100%"
+                    preserveAspectRatio="xMidYMid meet"
+                    focusable="false"
+                  >
+                    <path
+                      class="svg-fill"
+                      d="M0 2a2 2 0 012-2h16a2 2 0 012 2v16a2 2 0 01-2 2H2a2 2 0 01-2-2V2z"
+                    ></path>
+                    <path
+                      stroke="#fff"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5.357 9.643l3.929 4.286L15 6.07"
+                    ></path>
+                  </svg>
+                </svg-icon>
+                <div class="answer-checkbox-text">None of the above</div>
+              </div>
+            </div>
           </div>
           <div class="step" id="step-4" style="display: none">
             <input type="radio" name="radio2" /> Choice C
@@ -321,6 +703,18 @@
           answer.classList.remove("active-answer");
         });
         e.classList.toggle("active-answer");
+      }
+      function toggleCheck(e) {
+        if (e.dataset.target === "uncheck") {
+          const checkboxes = document.querySelectorAll(".answer-checkbox");
+          checkboxes.forEach((checkbox) => {
+            checkbox.classList.remove("active-checkbox");
+          });
+        } else {
+          const uncheckBox = document.querySelector('[data-target="uncheck"]');
+          uncheckBox.classList.remove("active-checkbox");
+        }
+        e.classList.toggle("active-checkbox");
       }
       function updateMarkers() {
         stepMarkers.forEach((marker, index) => {
