@@ -115,6 +115,54 @@
           <h3>Step 4 Content</h3>
           <input type="checkbox" /> Option 8
         </div>
+        <div class="step" id="step-10" style="display: none">
+          <h3>Step 4 Content</h3>
+          <input type="checkbox" /> Option 8
+        </div>
+        <div class="step" id="step-11" style="display: none">
+          <h3>Step 4 Content</h3>
+          <input type="checkbox" /> Option 8
+        </div>
+        <div class="step" id="step-12" style="display: none">
+          <h3>Step 4 Content</h3>
+          <input type="checkbox" /> Option 8
+        </div>
+        <div class="step" id="step-13" style="display: none">
+          <h3>Step 4 Content</h3>
+          <input type="checkbox" /> Option 8
+        </div>
+        <div class="step" id="step-14" style="display: none">
+          <h3>Step 4 Content</h3>
+          <input type="checkbox" /> Option 8
+        </div>
+        <div class="step" id="step-15" style="display: none">
+          <h3>Step 4 Content</h3>
+          <input type="checkbox" /> Option 8
+        </div>
+        <div class="step" id="step-16" style="display: none">
+          <h3>Step 4 Content</h3>
+          <input type="checkbox" /> Option 8
+        </div>
+        <div class="step" id="step-17" style="display: none">
+          <h3>Step 4 Content</h3>
+          <input type="checkbox" /> Option 8
+        </div>
+        <div class="step" id="step-18" style="display: none">
+          <h3>Step 4 Content</h3>
+          <input type="checkbox" /> Option 8
+        </div>
+        <div class="step" id="step-19" style="display: none">
+          <h3>Step 4 Content</h3>
+          <input type="checkbox" /> Option 8
+        </div>
+        <div class="step" id="step-20" style="display: none">
+          <h3>Step 4 Content</h3>
+          <input type="checkbox" /> Option 8
+        </div>
+        <div class="step" id="step-21" style="display: none">
+          <h3>Step 4 Content</h3>
+          <input type="checkbox" /> Option 8
+        </div>
       </div>
       <button id="backBtn" disabled>Back</button>
       <button id="nextBtn">Next</button>
@@ -160,14 +208,20 @@
 
       function updateMarkers() {
         stepMarkers.forEach((marker, index) => {
-          if (
-            mainSteps.includes(currentStep) &&
-            mainSteps.indexOf(currentStep) === index
-          ) {
+          console.log()
+          if(currentStep ===7){
             marker.classList.add("active");
-          } else {
-            marker.classList.remove("active");
           }
+          // if (
+          //   mainSteps.includes(currentStep) &&
+          //   mainSteps.indexOf(currentStep) === index
+          // ) {
+          //   console.log("ACTIVE", marker, currentStep, index);
+          //   // marker.classList.add("active");
+          // } else {
+          //   console.log("NOT ACTIVE", marker, currentStep, index);
+          //   marker.classList.remove("active");
+          // }
         });
       }
     </script>
