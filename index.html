@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stepper with Progress Bar</title>
     <style>
-      .checkbox-icon{
+      .checkbox-icon {
         content: url("./chcck.png");
       }
       .main-container {
@@ -105,7 +105,7 @@
         gap: 10px;
         padding: 13px;
       }
-      .answer-checkbox svg-icon {
+      .answer-checkbox img {
         width: 24px; /* Set a consistent width */
         height: 24px;
         display: flex;
@@ -120,9 +120,12 @@
       .active-checkbox {
         border: 1px solid #ff0283;
       }
-      .active-checkbox svg-icon {
+      .active-checkbox img {
         background: #ff0283;
         border: none;
+      }
+      .active-outline {
+        border: 1px solid #ff0283;
       }
     </style>
   </head>
@@ -255,295 +258,43 @@
             </div>
             <div class="answer-checkbox-container">
               <div class="answer-checkbox" onclick="toggleCheck(this)">
-                <svg-icon
-                  size="sm"
-                  _nghost-snk-c28=""
-                  role="img"
-                  class="ng-star-inserted fill-color svg-icon-check-fill"
-                  style="font-size: 24px"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 20 20"
-                    fit=""
-                    height="100%"
-                    width="100%"
-                    preserveAspectRatio="xMidYMid meet"
-                    focusable="false"
-                  >
-                    <path
-                      class="svg-fill"
-                      d="M0 2a2 2 0 012-2h16a2 2 0 012 2v16a2 2 0 01-2 2H2a2 2 0 01-2-2V2z"
-                    ></path>
-                    <path
-                      stroke="#fff"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5.357 9.643l3.929 4.286L15 6.07"
-                    ></path>
-                  </svg>
-                </svg-icon>
+                <img class="checkbox-icon" alt="" />
                 <div class="answer-checkbox-text">Dullness</div>
               </div>
               <div class="answer-checkbox" onclick="toggleCheck(this)">
-                <svg-icon
-                  size="sm"
-                  _nghost-snk-c28=""
-                  role="img"
-                  class="ng-star-inserted fill-color svg-icon-check-fill"
-                  style="font-size: 24px"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 20 20"
-                    fit=""
-                    height="100%"
-                    width="100%"
-                    preserveAspectRatio="xMidYMid meet"
-                    focusable="false"
-                  >
-                    <path
-                      class="svg-fill"
-                      d="M0 2a2 2 0 012-2h16a2 2 0 012 2v16a2 2 0 01-2 2H2a2 2 0 01-2-2V2z"
-                    ></path>
-                    <path
-                      stroke="#fff"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5.357 9.643l3.929 4.286L15 6.07"
-                    ></path>
-                  </svg>
-                </svg-icon>
+                <img class="checkbox-icon" alt="" />
                 <div class="answer-checkbox-text">Dryness or flakiness</div>
               </div>
               <div class="answer-checkbox" onclick="toggleCheck(this)">
-                <svg-icon
-                  size="sm"
-                  _nghost-snk-c28=""
-                  role="img"
-                  class="ng-star-inserted fill-color svg-icon-check-fill"
-                  style="font-size: 24px"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 20 20"
-                    fit=""
-                    height="100%"
-                    width="100%"
-                    preserveAspectRatio="xMidYMid meet"
-                    focusable="false"
-                  >
-                    <path
-                      class="svg-fill"
-                      d="M0 2a2 2 0 012-2h16a2 2 0 012 2v16a2 2 0 01-2 2H2a2 2 0 01-2-2V2z"
-                    ></path>
-                    <path
-                      stroke="#fff"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5.357 9.643l3.929 4.286L15 6.07"
-                    ></path>
-                  </svg>
-                </svg-icon>
+                <img class="checkbox-icon" alt="" />
                 <div class="answer-checkbox-text">
                   Loss of volume or firmness
                 </div>
               </div>
               <div class="answer-checkbox" onclick="toggleCheck(this)">
-                <svg-icon
-                  size="sm"
-                  _nghost-snk-c28=""
-                  role="img"
-                  class="ng-star-inserted fill-color svg-icon-check-fill"
-                  style="font-size: 24px"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 20 20"
-                    fit=""
-                    height="100%"
-                    width="100%"
-                    preserveAspectRatio="xMidYMid meet"
-                    focusable="false"
-                  >
-                    <path
-                      class="svg-fill"
-                      d="M0 2a2 2 0 012-2h16a2 2 0 012 2v16a2 2 0 01-2 2H2a2 2 0 01-2-2V2z"
-                    ></path>
-                    <path
-                      stroke="#fff"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5.357 9.643l3.929 4.286L15 6.07"
-                    ></path>
-                  </svg>
-                </svg-icon>
+                <img class="checkbox-icon" alt="" />
                 <div class="answer-checkbox-text">Fine lines or wrinkles</div>
               </div>
               <div class="answer-checkbox" onclick="toggleCheck(this)">
-                <svg-icon
-                  size="sm"
-                  _nghost-snk-c28=""
-                  role="img"
-                  class="ng-star-inserted fill-color svg-icon-check-fill"
-                  style="font-size: 24px"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 20 20"
-                    fit=""
-                    height="100%"
-                    width="100%"
-                    preserveAspectRatio="xMidYMid meet"
-                    focusable="false"
-                  >
-                    <path
-                      class="svg-fill"
-                      d="M0 2a2 2 0 012-2h16a2 2 0 012 2v16a2 2 0 01-2 2H2a2 2 0 01-2-2V2z"
-                    ></path>
-                    <path
-                      stroke="#fff"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5.357 9.643l3.929 4.286L15 6.07"
-                    ></path>
-                  </svg>
-                </svg-icon>
+                <img class="checkbox-icon" alt="" />
                 <div class="answer-checkbox-text">
                   Dark spots or discoloration
                 </div>
               </div>
               <div class="answer-checkbox" onclick="toggleCheck(this)">
-                <svg-icon
-                  size="sm"
-                  _nghost-snk-c28=""
-                  role="img"
-                  class="ng-star-inserted fill-color svg-icon-check-fill"
-                  style="font-size: 24px"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 20 20"
-                    fit=""
-                    height="100%"
-                    width="100%"
-                    preserveAspectRatio="xMidYMid meet"
-                    focusable="false"
-                  >
-                    <path
-                      class="svg-fill"
-                      d="M0 2a2 2 0 012-2h16a2 2 0 012 2v16a2 2 0 01-2 2H2a2 2 0 01-2-2V2z"
-                    ></path>
-                    <path
-                      stroke="#fff"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5.357 9.643l3.929 4.286L15 6.07"
-                    ></path>
-                  </svg>
-                </svg-icon>
+                <img class="checkbox-icon" alt="" />
                 <div class="answer-checkbox-text">Redness</div>
               </div>
               <div class="answer-checkbox" onclick="toggleCheck(this)">
-                <svg-icon
-                  size="sm"
-                  _nghost-snk-c28=""
-                  role="img"
-                  class="ng-star-inserted fill-color svg-icon-check-fill"
-                  style="font-size: 24px"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 20 20"
-                    fit=""
-                    height="100%"
-                    width="100%"
-                    preserveAspectRatio="xMidYMid meet"
-                    focusable="false"
-                  >
-                    <path
-                      class="svg-fill"
-                      d="M0 2a2 2 0 012-2h16a2 2 0 012 2v16a2 2 0 01-2 2H2a2 2 0 01-2-2V2z"
-                    ></path>
-                    <path
-                      stroke="#fff"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5.357 9.643l3.929 4.286L15 6.07"
-                    ></path>
-                  </svg>
-                </svg-icon>
+                <img class="checkbox-icon" alt="" />
                 <div class="answer-checkbox-text">Visible pores</div>
               </div>
               <div class="answer-checkbox" onclick="toggleCheck(this)">
-                <svg-icon
-                  size="sm"
-                  _nghost-snk-c28=""
-                  role="img"
-                  class="ng-star-inserted fill-color svg-icon-check-fill"
-                  style="font-size: 24px"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 20 20"
-                    fit=""
-                    height="100%"
-                    width="100%"
-                    preserveAspectRatio="xMidYMid meet"
-                    focusable="false"
-                  >
-                    <path
-                      class="svg-fill"
-                      d="M0 2a2 2 0 012-2h16a2 2 0 012 2v16a2 2 0 01-2 2H2a2 2 0 01-2-2V2z"
-                    ></path>
-                    <path
-                      stroke="#fff"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5.357 9.643l3.929 4.286L15 6.07"
-                    ></path>
-                  </svg>
-                </svg-icon>
+                <img class="checkbox-icon" alt="" />
                 <div class="answer-checkbox-text">Bumps and Blemishes</div>
               </div>
               <div class="answer-checkbox" onclick="toggleCheck(this)">
-                <svg-icon
-                  size="sm"
-                  _nghost-snk-c28=""
-                  role="img"
-                  class="ng-star-inserted fill-color svg-icon-check-fill"
-                  style="font-size: 24px"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 20 20"
-                    fit=""
-                    height="100%"
-                    width="100%"
-                    preserveAspectRatio="xMidYMid meet"
-                    focusable="false"
-                  >
-                    <path
-                      class="svg-fill"
-                      d="M0 2a2 2 0 012-2h16a2 2 0 012 2v16a2 2 0 01-2 2H2a2 2 0 01-2-2V2z"
-                    ></path>
-                    <path
-                      stroke="#fff"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5.357 9.643l3.929 4.286L15 6.07"
-                    ></path>
-                  </svg>
-                </svg-icon>
+                <img class="checkbox-icon" alt="" />
                 <div class="answer-checkbox-text">Sensitive skin</div>
               </div>
               <div
@@ -551,72 +302,293 @@
                 onclick="toggleCheck(this)"
                 data-target="uncheck"
               >
-                <svg-icon
-                  size="sm"
-                  _nghost-snk-c28=""
-                  role="img"
-                  class="ng-star-inserted fill-color svg-icon-check-fill"
-                  style="font-size: 24px"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 20 20"
-                    fit=""
-                    height="100%"
-                    width="100%"
-                    preserveAspectRatio="xMidYMid meet"
-                    focusable="false"
-                  >
-                    <path
-                      class="svg-fill"
-                      d="M0 2a2 2 0 012-2h16a2 2 0 012 2v16a2 2 0 01-2 2H2a2 2 0 01-2-2V2z"
-                    ></path>
-                    <path
-                      stroke="#fff"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5.357 9.643l3.929 4.286L15 6.07"
-                    ></path>
-                  </svg>
-                </svg-icon>
+                <img class="checkbox-icon" alt="" />
                 <div class="answer-checkbox-text">None of the above</div>
               </div>
             </div>
           </div>
           <div class="step" id="step-4" style="display: none">
-            <input type="radio" name="radio2" /> Choice C
-            <input type="radio" name="radio2" /> Choice D
+            <img
+              src="./assets power redo/assets power redo/step 4/results/1.png"
+              style="width: 100%"
+            />
           </div>
           <div class="step" id="step-5" style="display: none">
-            <input type="checkbox" /> Option 5
+            <div class="title">
+              <img
+                src="./assets power redo/assets power redo/step 5/How would you describe the fine lines around your eyes, forehea.png"
+                alt=""
+                class="answer-title"
+              />
+            </div>
+            <div class="answer-checkbox-container">
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">No fine lines yet</div>
+              </div>
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">Eh, they’re barely there</div>
+              </div>
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">Few, but visible</div>
+              </div>
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">Deep and prominent</div>
+              </div>
+            </div>
           </div>
           <div class="step" id="step-6" style="display: none">
-            <h3>Step 3 Content</h3>
-            <input type="checkbox" /> Option 6
+            <div class="answer-checkbox-container">
+              <div class="answer-checkbox check-6" onclick="toggleCheck(this)">
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">Forehead</div>
+              </div>
+              <div class="answer-checkbox check-6" onclick="toggleCheck(this)">
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">Between the eyebrows</div>
+              </div>
+              <div class="answer-checkbox check-6" onclick="toggleCheck(this)">
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">Around the eyes</div>
+              </div>
+              <div class="answer-checkbox check-6" onclick="toggleCheck(this)">
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">Around the mouth</div>
+              </div>
+              <div class="answer-checkbox check-6" onclick="toggleCheck(this)">
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">Smile lines/cheeks</div>
+              </div>
+              <div
+                class="answer-checkbox"
+                onclick="toggleCheck(this)"
+                data-target="uncheck-step-6"
+              >
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">Somewhere else</div>
+              </div>
+            </div>
           </div>
           <div class="step" id="step-7" style="display: none">
-            <input type="radio" name="radio3" /> Choice E
-            <input type="radio" name="radio3" /> Choice F
+            <div class="title">
+              <img
+                src="./assets power redo/assets power redo/step 4/tell us about.png"
+                alt=""
+                class="answer-title"
+              />
+            </div>
+            <div class="answer-checkbox-container">
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">Small and barely there</div>
+              </div>
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">
+                  Sorta noticeable in my t-zone (forehead, nose, chin)
+                </div>
+              </div>
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">Large and visible</div>
+              </div>
+              <div
+                class="answer-outline answer-checkbox"
+                onclick="toggleActiveOutline(this)"
+              >
+                <div class="answer-checkbox-text">Girl, I have no idea</div>
+              </div>
+            </div>
           </div>
           <div class="step" id="step-8" style="display: none">
-            <input type="checkbox" /> Option 7
+            <div class="answer-checkbox-container">
+              <div class="answer-checkbox check-8" onclick="toggleCheck(this)">
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">
+                  Cleanser or Cleansing Balm
+                </div>
+              </div>
+              <div class="answer-checkbox check-8" onclick="toggleCheck(this)">
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">Exfoliator</div>
+              </div>
+              <div class="answer-checkbox check-8" onclick="toggleCheck(this)">
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">Anti-redness Treatment</div>
+              </div>
+              <div class="answer-checkbox check-8" onclick="toggleCheck(this)">
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">Serum</div>
+              </div>
+              <div class="answer-checkbox check-8" onclick="toggleCheck(this)">
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">Moisturizer</div>
+              </div>
+              <div class="answer-checkbox check-8" onclick="toggleCheck(this)">
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">
+                  Plumping or Firming Cream
+                </div>
+              </div>
+              <div class="answer-checkbox check-8" onclick="toggleCheck(this)">
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">Eye Cream</div>
+              </div>
+              <div class="answer-checkbox check-8" onclick="toggleCheck(this)">
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">Sunscreen</div>
+              </div>
+              <div class="answer-checkbox check-8" onclick="toggleCheck(this)">
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">Wrinkle Filler</div>
+              </div>
+              <div
+                class="answer-checkbox"
+                onclick="toggleCheck(this)"
+                data-target="uncheck-step-8"
+              >
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">Somewhere else</div>
+              </div>
+            </div>
           </div>
           <div class="step" id="step-9" style="display: none">
-            <h3>Step 4 Content</h3>
-            <input type="checkbox" /> Option 8
+            <div class="answer-checkbox-container">
+              <div class="answer-checkbox check-9" onclick="toggleCheck(this)">
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">
+                  Fills in wrinkles and fine lines
+                </div>
+              </div>
+              <div class="answer-checkbox check-9" onclick="toggleCheck(this)">
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">
+                  Blurs look of pores or uneven texture
+                </div>
+              </div>
+              <div class="answer-checkbox check-9" onclick="toggleCheck(this)">
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">
+                  Smooths the look and feel of skin
+                </div>
+              </div>
+              <div class="answer-checkbox check-9" onclick="toggleCheck(this)">
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">
+                  Preps skin for makeup application
+                </div>
+              </div>
+              <div class="answer-checkbox check-9" onclick="toggleCheck(this)">
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">
+                  Hydrates and nourishes skin
+                </div>
+              </div>
+              <div class="answer-checkbox check-9" onclick="toggleCheck(this)">
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">
+                  Has powerful ingredients for long-term benefit
+                </div>
+              </div>
+              <div
+                class="answer-checkbox"
+                onclick="toggleCheck(this)"
+                data-target="uncheck-step-9"
+              >
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">Something else</div>
+              </div>
+            </div>
           </div>
           <div class="step" id="step-10" style="display: none">
-            <h3>Step 4 Content</h3>
-            <input type="checkbox" /> Option 8
+            <div class="title">
+              <img
+                src="./assets power redo/assets power redo/step 10/Be real_ How long does your skincare routine take_.png"
+                alt=""
+                class="answer-title"
+              />
+            </div>
+            <div class="answer" onclick="toggleActive(this)">
+              <img
+                src="./assets power redo/assets power redo/step 10/choices1/1.png"
+                alt=""
+              />
+            </div>
+            <div class="answer" onclick="toggleActive(this)">
+              <img
+                src="./assets power redo/assets power redo/step 10/choices1/2.png"
+                alt=""
+              />
+            </div>
+            <div class="answer" onclick="toggleActive(this)">
+              <img
+                src="./assets power redo/assets power redo/step 10/choices1/3.png"
+                alt=""
+              />
+            </div>
+            <div class="answer" onclick="toggleActive(this)">
+              <img
+                src="./assets power redo/assets power redo/step 10/choices1/4.png"
+                alt=""
+              />
+            </div>
           </div>
           <div class="step" id="step-11" style="display: none">
             <h3>Step 4 Content</h3>
             <input type="checkbox" /> Option 8
           </div>
           <div class="step" id="step-12" style="display: none">
-            <h3>Step 4 Content</h3>
-            <input type="checkbox" /> Option 8
+            <div class="answer-checkbox-container">
+              <div class="answer-checkbox check-12" onclick="toggleCheck(this)">
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">Moisturizer</div>
+              </div>
+              <div class="answer-checkbox check-12" onclick="toggleCheck(this)">
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">Face oil</div>
+              </div>
+              <div class="answer-checkbox check-12" onclick="toggleCheck(this)">
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">Serum</div>
+              </div>
+              <div class="answer-checkbox check-12" onclick="toggleCheck(this)">
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">Wrinkle Filler</div>
+              </div>
+              <div class="answer-checkbox check-12" onclick="toggleCheck(this)">
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">Primer</div>
+              </div>
+              <div class="answer-checkbox check-12" onclick="toggleCheck(this)">
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">I don't prep</div>
+              </div>
+              <div
+                class="answer-checkbox"
+                onclick="toggleCheck(this)"
+                data-target="uncheck-step-12"
+              >
+                <img class="checkbox-icon" alt="" />
+                <div class="answer-checkbox-text">Something else</div>
+              </div>
+            </div>
           </div>
           <div class="step" id="step-13" style="display: none">
             <h3>Step 4 Content</h3>
@@ -704,19 +676,81 @@
         });
         e.classList.toggle("active-answer");
       }
+      function toggleActiveOutline(e) {
+        const answers = document.querySelectorAll(".answer-outline");
+        answers.forEach((answer) => {
+          answer.classList.remove("active-outline");
+        });
+        e.classList.toggle("active-outline");
+      }
       function toggleCheck(e) {
-        if (e.dataset.target === "uncheck") {
-          const checkboxes = document.querySelectorAll(".answer-checkbox");
+        const target = e.dataset.target;
+        if (
+          target === "uncheck" ||
+          target === "uncheck-step-6" ||
+          target === "uncheck-step-8" ||
+          target === "uncheck-step-9" ||
+          target === "uncheck-step-12"
+        ) {
+          let checkboxes;
+          switch (target) {
+            case "uncheck":
+              checkboxes = document.querySelectorAll(".answer-checkbox");
+              break;
+            case "uncheck-step-6":
+              checkboxes = document.querySelectorAll(".check-6");
+              break;
+            case "uncheck-step-8":
+              checkboxes = document.querySelectorAll(".check-8");
+              break;
+            case "uncheck-step-9":
+              checkboxes = document.querySelectorAll(".check-9");
+              break;
+            case "uncheck-step-12":
+              checkboxes = document.querySelectorAll(".check-12");
+              break;
+          }
           checkboxes.forEach((checkbox) => {
             checkbox.classList.remove("active-checkbox");
           });
         } else {
-          const uncheckBox = document.querySelector('[data-target="uncheck"]');
-          uncheckBox.classList.remove("active-checkbox");
+          let uncheckBox;
+          switch (target) {
+            case "uncheck":
+              uncheckBox = document.querySelector('[data-target="uncheck"]');
+              uncheckBox.classList.remove("active-checkbox");
+              break;
+            case "uncheck-step-6":
+              uncheckBox = document.querySelector(
+                '[data-target="uncheck-step-6"]'
+              );
+              uncheckBox.classList.remove("active-checkbox");
+              break;
+            case "uncheck-step-8":
+              uncheckBox = document.querySelector(
+                '[data-target="uncheck-step-8"]'
+              );
+              uncheckBox.classList.remove("active-checkbox");
+              break;
+            case "uncheck-step-9":
+              uncheckBox = document.querySelector(
+                '[data-target="uncheck-step-9"]'
+              );
+              uncheckBox.classList.remove("active-checkbox");
+              break;
+            case "uncheck-step-12":
+              uncheckBox = document.querySelector(
+                '[data-target="uncheck-step-12"]'
+              );
+              uncheckBox.classList.remove("active-checkbox");
+              break;
+          }
         }
+
         e.classList.toggle("active-checkbox");
       }
       function updateMarkers() {
+        console.log("UPDATE MARKERS", currentStep);
         stepMarkers.forEach((marker, index) => {
           console.log();
           if (currentStep === 7) {
