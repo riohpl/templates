@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stepper with Progress Bar</title>
     <style>
-      body {
+      .main-container {
+        text-align: center;
         font-family: Arial, sans-serif;
         display: flex;
-        justify-content: center;
+        justify-content: start;
         align-items: center;
         height: 100vh;
-        background: #f4f4f4;
+        flex-direction: column;
       }
       .container {
-        width: 400px;
-        text-align: center;
+        width: 80vw;
+        margin-top: 8%;
       }
       .progress-container {
         position: relative;
@@ -26,8 +27,13 @@
       .progress {
         height: 4px;
         width: 0%;
-        background: #4caf50;
+        background: #ff0283;
         transition: width 0.3s ease;
+      }
+      .step {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
       }
       .step-marker {
         position: absolute;
@@ -43,20 +49,17 @@
         transform: translate(-50%, -50%);
       }
       .step-marker.active {
-        background: #4caf50;
+        background: #ff0283;
       }
       .step-content {
-        margin-top: 20px;
+        margin-top: 50px;
         padding: 20px;
-        background: white;
-        border-radius: 5px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
       }
       button {
         margin-top: 20px;
         padding: 10px 20px;
         border: none;
-        background: #4caf50;
+        background: #ff0283;
         color: white;
         font-size: 16px;
         cursor: pointer;
@@ -66,106 +69,187 @@
         background: #ccc;
         cursor: not-allowed;
       }
+      .answer {
+        position: relative;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        border-radius: 2px;
+        border: 1px solid #e4e4e4;
+      }
+      .answer img {
+        width: 100%;
+      }
+      .answer-text {
+        color: #504a5b;
+        text-align: start;
+      }
+      .answer-title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .active-answer {
+        border: 1px solid #ff0283;
+        background-color: #ff0283;
+      }
     </style>
   </head>
   <body>
-    <div class="container">
-      <div class="progress-container">
-        <div class="progress"></div>
-        <div class="step-marker active" style="left: 0%">1</div>
-        <div class="step-marker" style="left: 33%">2</div>
-        <div class="step-marker" style="left: 66%">3</div>
-        <div class="step-marker" style="left: 100%">4</div>
+    <div class="main-container">
+      <div class="header">
+        <img src="./assets power redo/assets power redo/LOGO.png" alt="" />
       </div>
-      <div class="step-content" id="stepContent">
-        <div class="step" id="step-0">
-          <h3>Step 1 Content</h3>
-          <input type="checkbox" /> Option 1 <input type="checkbox" /> Option 2
+      <div class="container">
+        <div class="progress-container">
+          <div class="progress"></div>
+          <div class="step-marker active" style="left: 0%"></div>
+          <div class="step-marker" style="left: 33%">2</div>
+          <div class="step-marker" style="left: 66%">3</div>
+          <div class="step-marker" style="left: 100%"></div>
         </div>
-        <div class="step" id="step-1" style="display: none">
-          <input type="radio" name="radio1" /> Choice A
-          <input type="radio" name="radio1" /> Choice B
+        <div class="step-content" id="stepContent">
+          <div class="step" id="step-0">
+            <div class="title">
+              
+            </div>
+            <div class="answer" onclick="toggleActive(this)">
+              <img
+                src="./assets power redo/assets power redo/step 1/choices1/1.png"
+                alt=""
+              />
+            </div>
+            <div class="answer" onclick="toggleActive(this)">
+              <img
+                src="./assets power redo/assets power redo/step 1/choices1/2.png"
+                alt=""
+              />
+            </div>
+            <div class="answer" onclick="toggleActive(this)">
+              <img
+                src="./assets power redo/assets power redo/step 1/choices1/3.png"
+                alt=""
+              />
+            </div>
+            <div class="answer" onclick="toggleActive(this)">
+              <img
+                src="./assets power redo/assets power redo/step 1/choices1/4.png"
+                alt=""
+              />
+            </div>
+            <div class="answer" onclick="toggleActive(this)">
+              <img
+                src="./assets power redo/assets power redo/step 1/choices1/5.png"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="step" id="step-1" style="display: none">
+            <div class="answer" onclick="toggleActive(this)">
+              <img
+                src="./assets power redo/assets power redo/step 2/choices2/1.png"
+                alt=""
+              />
+            </div>
+            <div class="answer" onclick="toggleActive(this)">
+              <img
+                src="./assets power redo/assets power redo/step 2/choices2/2.png"
+                alt=""
+              />
+            </div>
+            <div class="answer" onclick="toggleActive(this)">
+              <img
+                src="./assets power redo/assets power redo/step 2/choices2/3.png"
+                alt=""
+              />
+            </div>
+            <div class="answer" onclick="toggleActive(this)">
+              <img
+                src="./assets power redo/assets power redo/step 2/choices2/4.png"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="step" id="step-2" style="display: none">
+            <input type="checkbox" /> Option 3
+          </div>
+          <div class="step" id="step-3" style="display: none">
+            <h3>Step 2 Content</h3>
+            <input type="checkbox" /> Option 4
+          </div>
+          <div class="step" id="step-4" style="display: none">
+            <input type="radio" name="radio2" /> Choice C
+            <input type="radio" name="radio2" /> Choice D
+          </div>
+          <div class="step" id="step-5" style="display: none">
+            <input type="checkbox" /> Option 5
+          </div>
+          <div class="step" id="step-6" style="display: none">
+            <h3>Step 3 Content</h3>
+            <input type="checkbox" /> Option 6
+          </div>
+          <div class="step" id="step-7" style="display: none">
+            <input type="radio" name="radio3" /> Choice E
+            <input type="radio" name="radio3" /> Choice F
+          </div>
+          <div class="step" id="step-8" style="display: none">
+            <input type="checkbox" /> Option 7
+          </div>
+          <div class="step" id="step-9" style="display: none">
+            <h3>Step 4 Content</h3>
+            <input type="checkbox" /> Option 8
+          </div>
+          <div class="step" id="step-10" style="display: none">
+            <h3>Step 4 Content</h3>
+            <input type="checkbox" /> Option 8
+          </div>
+          <div class="step" id="step-11" style="display: none">
+            <h3>Step 4 Content</h3>
+            <input type="checkbox" /> Option 8
+          </div>
+          <div class="step" id="step-12" style="display: none">
+            <h3>Step 4 Content</h3>
+            <input type="checkbox" /> Option 8
+          </div>
+          <div class="step" id="step-13" style="display: none">
+            <h3>Step 4 Content</h3>
+            <input type="checkbox" /> Option 8
+          </div>
+          <div class="step" id="step-14" style="display: none">
+            <h3>Step 4 Content</h3>
+            <input type="checkbox" /> Option 8
+          </div>
+          <div class="step" id="step-15" style="display: none">
+            <h3>Step 4 Content</h3>
+            <input type="checkbox" /> Option 8
+          </div>
+          <div class="step" id="step-16" style="display: none">
+            <h3>Step 4 Content</h3>
+            <input type="checkbox" /> Option 8
+          </div>
+          <div class="step" id="step-17" style="display: none">
+            <h3>Step 4 Content</h3>
+            <input type="checkbox" /> Option 8
+          </div>
+          <div class="step" id="step-18" style="display: none">
+            <h3>Step 4 Content</h3>
+            <input type="checkbox" /> Option 8
+          </div>
+          <div class="step" id="step-19" style="display: none">
+            <h3>Step 4 Content</h3>
+            <input type="checkbox" /> Option 8
+          </div>
+          <div class="step" id="step-20" style="display: none">
+            <h3>Step 4 Content</h3>
+            <input type="checkbox" /> Option 8
+          </div>
+          <div class="step" id="step-21" style="display: none">
+            <h3>Step 4 Content</h3>
+            <input type="checkbox" /> Option 8
+          </div>
         </div>
-        <div class="step" id="step-2" style="display: none">
-          <input type="checkbox" /> Option 3
-        </div>
-        <div class="step" id="step-3" style="display: none">
-          <h3>Step 2 Content</h3>
-          <input type="checkbox" /> Option 4
-        </div>
-        <div class="step" id="step-4" style="display: none">
-          <input type="radio" name="radio2" /> Choice C
-          <input type="radio" name="radio2" /> Choice D
-        </div>
-        <div class="step" id="step-5" style="display: none">
-          <input type="checkbox" /> Option 5
-        </div>
-        <div class="step" id="step-6" style="display: none">
-          <h3>Step 3 Content</h3>
-          <input type="checkbox" /> Option 6
-        </div>
-        <div class="step" id="step-7" style="display: none">
-          <input type="radio" name="radio3" /> Choice E
-          <input type="radio" name="radio3" /> Choice F
-        </div>
-        <div class="step" id="step-8" style="display: none">
-          <input type="checkbox" /> Option 7
-        </div>
-        <div class="step" id="step-9" style="display: none">
-          <h3>Step 4 Content</h3>
-          <input type="checkbox" /> Option 8
-        </div>
-        <div class="step" id="step-10" style="display: none">
-          <h3>Step 4 Content</h3>
-          <input type="checkbox" /> Option 8
-        </div>
-        <div class="step" id="step-11" style="display: none">
-          <h3>Step 4 Content</h3>
-          <input type="checkbox" /> Option 8
-        </div>
-        <div class="step" id="step-12" style="display: none">
-          <h3>Step 4 Content</h3>
-          <input type="checkbox" /> Option 8
-        </div>
-        <div class="step" id="step-13" style="display: none">
-          <h3>Step 4 Content</h3>
-          <input type="checkbox" /> Option 8
-        </div>
-        <div class="step" id="step-14" style="display: none">
-          <h3>Step 4 Content</h3>
-          <input type="checkbox" /> Option 8
-        </div>
-        <div class="step" id="step-15" style="display: none">
-          <h3>Step 4 Content</h3>
-          <input type="checkbox" /> Option 8
-        </div>
-        <div class="step" id="step-16" style="display: none">
-          <h3>Step 4 Content</h3>
-          <input type="checkbox" /> Option 8
-        </div>
-        <div class="step" id="step-17" style="display: none">
-          <h3>Step 4 Content</h3>
-          <input type="checkbox" /> Option 8
-        </div>
-        <div class="step" id="step-18" style="display: none">
-          <h3>Step 4 Content</h3>
-          <input type="checkbox" /> Option 8
-        </div>
-        <div class="step" id="step-19" style="display: none">
-          <h3>Step 4 Content</h3>
-          <input type="checkbox" /> Option 8
-        </div>
-        <div class="step" id="step-20" style="display: none">
-          <h3>Step 4 Content</h3>
-          <input type="checkbox" /> Option 8
-        </div>
-        <div class="step" id="step-21" style="display: none">
-          <h3>Step 4 Content</h3>
-          <input type="checkbox" /> Option 8
-        </div>
+        <button id="backBtn" disabled>Back</button>
+        <button id="nextBtn">Next</button>
       </div>
-      <button id="backBtn" disabled>Back</button>
-      <button id="nextBtn">Next</button>
     </div>
 
     <script>
@@ -182,7 +266,7 @@
         if (currentStep < totalSteps - 1) {
           steps[currentStep].style.display = "none";
           currentStep++;
-          steps[currentStep].style.display = "block";
+          steps[currentStep].style.display = "grid";
           progress.style.width = (currentStep / (totalSteps - 1)) * 100 + "%";
           updateMarkers();
         }
@@ -196,7 +280,7 @@
         if (currentStep > 0) {
           steps[currentStep].style.display = "none";
           currentStep--;
-          steps[currentStep].style.display = "block";
+          steps[currentStep].style.display = "grid";
           progress.style.width = (currentStep / (totalSteps - 1)) * 100 + "%";
           updateMarkers();
         }
@@ -205,11 +289,17 @@
           backBtn.disabled = true;
         }
       });
-
+      function toggleActive(e) {
+        const answers = document.querySelectorAll(".answer");
+        answers.forEach((answer) => {
+          answer.classList.remove("active-answer");
+        });
+        e.classList.toggle("active-answer");
+      }
       function updateMarkers() {
         stepMarkers.forEach((marker, index) => {
-          console.log()
-          if(currentStep ===7){
+          console.log();
+          if (currentStep === 7) {
             marker.classList.add("active");
           }
           // if (
