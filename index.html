@@ -993,6 +993,7 @@
                 src="./assets power redo/assets 2 (2)/titles 14-19/step 19 title.png"
                 alt=""
                 class="answer-title"
+                style="width: 70%"
               />
             </div>
             <div class="answer-checkbox-container">
@@ -1028,9 +1029,9 @@
               </div>
             </div>
           </div>
-          <div class="step" id="step-22" style="display: none">
+          <div class="step" id="step-24" style="display: none">
             <img src="./assets power redo/final_output.jpg" class="w-100" />
-            <div class="btn-cta">
+            <div class="btn-cta" onclick="mraid.open()">
               <img
                 src="./assets power redo/CTA (2).png"
                 alt=""
@@ -1045,7 +1046,116 @@
         <button id="nextBtn">Next</button>
       </div>
     </div>
+    <script>
+      (function () {
+        const mraid = window.mraid || {};
+        let isViewable = false;
+        let scrollInterval;
+        let isAutoScrolling = true;
 
+        // Configuration Constants
+        const SCROLL_SPEED = 1; // Pixels per tick
+        const SCROLL_INTERVAL = 50; // Milliseconds
+        const FALLBACK_DELAY = 1000; // Delay for non-MRAID environments
+        const content = document.getElementById("content");
+
+        // Utility: Starts auto-scrolling
+        const startAutoScroll = () => {
+          if (!isAutoScrolling) return;
+          scrollInterval = setInterval(() => {
+            content.scrollTop += SCROLL_SPEED;
+            if (
+              content.scrollHeight - content.scrollTop <=
+              content.clientHeight
+            ) {
+              content.scrollTop = 0; // Reset scroll to top
+            }
+          }, SCROLL_INTERVAL);
+        };
+
+        // Utility: Stops auto-scrolling
+        const stopAutoScroll = () => {
+          isAutoScrolling = false;
+          clearInterval(scrollInterval);
+        };
+
+        // Utility: Handles click actions
+        const handleClickAction = () => {
+          if (mraid.open && typeof mraid.open === "function") {
+            mraid.open();
+          } else {
+            window.open();
+          }
+        };
+
+        // Add click event listeners to specified selectors
+        const addClickHandlers = (selectors) => {
+          selectors.forEach((selector) => {
+            document.querySelectorAll(selector).forEach((element) => {
+              element.addEventListener("click", (e) => {
+                e.preventDefault();
+                handleClickAction();
+              });
+            });
+          });
+        };
+
+        // Initialize scrolling and content visibility
+        const initializeScrolling = () => {
+          content.style.display = "block"; // Ensure content is visible
+          if (
+            isViewable &&
+            mraid.isViewable &&
+            typeof mraid.isViewable === "function" &&
+            mraid.isViewable()
+          ) {
+            startAutoScroll();
+          }
+        };
+
+        // Initialize MRAID functionality
+        const initializeMraid = () => {
+          if (mraid && typeof mraid.getState === "function") {
+            const state = mraid.getState();
+            if (state === "loading") {
+              mraid.addEventListener("ready", () => {
+                isViewable = true;
+                initializeScrolling();
+              });
+            } else {
+              isViewable = true;
+              initializeScrolling();
+            }
+          } else {
+            // Fallback for non-MRAID environments
+            setTimeout(initializeScrolling, FALLBACK_DELAY);
+          }
+        };
+
+        // Add user interaction event listeners to stop auto-scrolling
+        const addUserInteractionListeners = () => {
+          ["touchstart", "mousedown", "wheel"].forEach((eventType) => {
+            content.addEventListener(eventType, stopAutoScroll, {
+              passive: true,
+            });
+          });
+        };
+
+        // Initialization logic
+        const initialize = () => {
+          addClickHandlers([".cta"]);
+          addUserInteractionListeners();
+          initializeMraid();
+        };
+
+        // Start initialization when the DOM is ready
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", initialize);
+        } else {
+          initialize();
+        }
+      })();
+    </script>
     <script>
       const progress = document.querySelector(".progress");
       const nextBtn = document.getElementById("nextBtn");
@@ -1111,16 +1221,16 @@
       function toggleCheck(e) {
         nextBtn.disabled = false;
         isChoiceActive = true;
-        const target = e.dataset.target;
+        const target = e;
         if (
-          target === "uncheck" ||
-          target === "uncheck-step-6" ||
-          target === "uncheck-step-8" ||
-          target === "uncheck-step-9" ||
-          target === "uncheck-step-12"
+          target.dataset.target === "uncheck" ||
+          target.dataset.target === "uncheck-step-6" ||
+          target.dataset.target === "uncheck-step-8" ||
+          target.dataset.target === "uncheck-step-9" ||
+          target.dataset.target === "uncheck-step-12"
         ) {
           let checkboxes;
-          switch (target) {
+          switch (target.dataset.target) {
             case "uncheck":
               checkboxes = document.querySelectorAll(".answer-checkbox");
               break;
@@ -1141,36 +1251,30 @@
             checkbox.classList.remove("active-checkbox");
           });
         } else {
+          console.log(e);
           let uncheckBox;
-          switch (target) {
-            case "uncheck":
-              uncheckBox = document.querySelector('[data-target="uncheck"]');
-              uncheckBox.classList.remove("active-checkbox");
-              break;
-            case "uncheck-step-6":
-              uncheckBox = document.querySelector(
-                '[data-target="uncheck-step-6"]'
-              );
-              uncheckBox.classList.remove("active-checkbox");
-              break;
-            case "uncheck-step-8":
-              uncheckBox = document.querySelector(
-                '[data-target="uncheck-step-8"]'
-              );
-              uncheckBox.classList.remove("active-checkbox");
-              break;
-            case "uncheck-step-9":
-              uncheckBox = document.querySelector(
-                '[data-target="uncheck-step-9"]'
-              );
-              uncheckBox.classList.remove("active-checkbox");
-              break;
-            case "uncheck-step-12":
-              uncheckBox = document.querySelector(
-                '[data-target="uncheck-step-12"]'
-              );
-              uncheckBox.classList.remove("active-checkbox");
-              break;
+          uncheckBox = document.querySelector('[data-target="uncheck"]');
+          console.log(uncheckBox.dataset.target, "UNCHEWEEEHH", e);
+          if (e.dataset.target == "uncheck") {
+            console.log("SHSSHSHSHTRUEEE");
+            uncheckBox.classList.remove("active-checkbox");
+          }
+          if (e.dataset.target == undefined) {
+            document
+              .querySelector('[data-target="uncheck"]')
+              .classList.remove("active-checkbox");
+            document
+              .querySelector('[data-target="uncheck-step-6"]')
+              .classList.remove("active-checkbox");
+            document
+              .querySelector('[data-target="uncheck-step-8"]')
+              .classList.remove("active-checkbox");
+            document
+              .querySelector('[data-target="uncheck-step-9"]')
+              .classList.remove("active-checkbox");
+            document
+              .querySelector('[data-target="uncheck-step-12"]')
+              .classList.remove("active-checkbox");
           }
         }
         e.classList.toggle("active-checkbox");
