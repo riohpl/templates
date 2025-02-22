@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stepper with Progress Bar</title>
     <style>
+      html {
+        scrollbar-width: none; /* Firefox */
+      }
+
+      body {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+        &::-webkit-scrollbar {
+          display: none; /* Chrome, Safari, and Opera */
+        }
+      }
       body {
         background-color: #fff;
       }
@@ -1124,7 +1135,7 @@
               </div>
             </div>
           </div>
-          <div class="step" id="step-24" style="display: none; gap:0">
+          <div class="step" id="step-24" style="display: none; gap: 0">
             <img class="w-100 final_output" />
             <div class="btn-cta pulse-button" onclick="mraid.open()">
               <img class="cta_btn" alt="" style="width: 60%" />
