@@ -3,17 +3,299 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hypnozio</title>
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <style></style>
+    <style>
+      .main_light {
+        content: url("assets/model/light/Layer\ 21.jpg");
+      }
+      .light_2 {
+        content: url("assets/model/light/Layer\ 22.jpg");
+      }
+      .light_3 {
+        content: url("assets/model/light/Layer\ 23.jpg");
+      }
+      .light_4 {
+        content: url("assets/model/light/Layer\ 24.jpg");
+      }
+      .light_5 {
+        content: url("assets/model/light/Layer\ 25.jpg");
+      }
+      .light_6 {
+        content: url("assets/model/light/Layer\ 26.jpg");
+      }
+      .light_7 {
+        content: url("assets/model/light/Layer\ 27.jpg");
+      }
+      .light_8 {
+        content: url("assets/model/light/Layer\ 28.jpg");
+      }
+      .light_9 {
+        content: url("assets/model/light/Layer\ 29.jpg");
+      }
+      .light_10 {
+        content: url("assets/model/light/Layer\ 30.jpg");
+      }
+      .main_mid {
+        content: url("assets/model/mid/Layer\ 11.jpg");
+      }
+      .mid_2 {
+        content: url("assets/model/mid/Layer\ 12.jpg");
+      }
+      .mid_3 {
+        content: url("assets/model/mid/Layer\ 13.jpg");
+      }
+      .mid_4 {
+        content: url("assets/model/mid/Layer\ 14.jpg");
+      }
+      .mid_5 {
+        content: url("assets/model/mid/Layer\ 15.jpg");
+      }
+      .mid_6 {
+        content: url("assets/model/mid/Layer\ 16.jpg");
+      }
+      .mid_7 {
+        content: url("assets/model/mid/Layer\ 17.jpg");
+      }
+      .mid_8 {
+        content: url("assets/model/mid/Layer\ 18.jpg");
+      }
+      .mid_9 {
+        content: url("assets/model/mid/Layer\ 19.jpg");
+      }
+      .mid_10 {
+        content: url("assets/model/mid/Layer\ 20.jpg");
+      }
+      .main_dark {
+        content: url("assets/model/dark/Layer\ 1.jpg");
+      }
+      .dark_2 {
+        content: url("assets/model/dark/Layer\ 2.jpg");
+      }
+      .dark_3 {
+        content: url("assets/model/dark/Layer\ 3.jpg");
+      }
+      .dark_4 {
+        content: url("assets/model/dark/Layer\ 4.jpg");
+      }
+      .dark_5 {
+        content: url("assets/model/dark/Layer\ 5.jpg");
+      }
+      .dark_6 {
+        content: url("assets/model/dark/Layer\ 6.jpg");
+      }
+      .dark_7 {
+        content: url("assets/model/dark/Layer\ 7.jpg");
+      }
+      .dark_8 {
+        content: url("assets/model/dark/Layer\ 8.jpg");
+      }
+      .dark_9 {
+        content: url("assets/model/dark/Layer\ 9.jpg");
+      }
+      .dark_10 {
+        content: url("assets/model/dark/Layer\ 10.jpg");
+      }
+
+      body {
+        margin: 0;
+        background: url("./assets/bg.jpg") no-repeat;
+        background-size: cover;
+      }
+      .container {
+        min-height: 100vh;
+        min-width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .logo {
+        content: url("assets/Haus_Labs_logo.png");
+      }
+      .header_title {
+        content: url("assets/text/BIO-RADIANT™\ GEL-POWDER\ HIGHLIGHTER_portrait.png");
+      }
+      .main_pic {
+        content: url("assets/model/light/Layer\ 21.jpg");
+      }
+      .swatch1 {
+        content: url("assets/shades/01-swatch-rose-quartz_52x.jpg");
+      }
+      .swatch2 {
+        content: url("assets/shades/02-swatch-fire-opal_52x.jpg");
+      }
+      .swatch3 {
+        content: url("assets/shades/03-swatch-peach-quartz_52x.jpg");
+      }
+      .swatch4 {
+        content: url("assets/shades/04swatch-pink-amethyst_52x.jpg");
+      }
+      .swatch5 {
+        content: url("assets/shades/05-swatch-sunstone_52x.jpg");
+      }
+      .swatch6 {
+        content: url("assets/shades/06-swatch-moonstone_52x.jpg");
+      }
+      .swatch7 {
+        content: url("assets/shades/07-swatch-raw-amber_52x.jpg");
+      }
+      .swatch8 {
+        content: url("assets/shades/08-swatch-golden-pyrite_52x.jpg");
+      }
+      .swatch9 {
+        content: url("assets/shades/09-swatch-bronzite_52x.jpg");
+      }
+      .swatch10 {
+        content: url("assets/shades/10-swatch-chocolate-opal_52x.jpg");
+      }
+      .tan1 {
+        content: url("assets/skin\ tones/light.jpg");
+      }
+      .tan2 {
+        content: url("assets/skin\ tones/mid.jpg");
+      }
+      .tan3 {
+        content: url("assets/skin\ tones/dark.jpg");
+      }
+      .sub_title {
+        content: url("assets/text/tap to choose from shades and skin tones.png");
+      }
+      .w-100 {
+        width: 100%;
+      }
+      .w-80 {
+        width: 80%;
+      }
+      .flex {
+        display: flex;
+      }
+      .main_content {
+        display: grid;
+        grid-template-columns: 1fr 11fr;
+      }
+      .swatches {
+        display: grid;
+      }
+      .header_2 {
+        padding: 20px 30px;
+      }
+      .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
+      }
+    </style>
   </head>
   <body>
-    <main class="bg-white flex w-full max-w-[100%] h-screen overflow-hidden">
-      <section id="content" class="overflow-y-scroll relative content w-full">
-        <div class="w-full h-full bg-red-500">TESTETSET</div>
-      </section>
-    </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <div class="container">
+      <div class="header">
+        <img src="" alt="" class="logo w-100" />
+      </div>
+      <div class="header_2 flex">
+        <img src="" alt="" class="header_title w-100" />
+      </div>
+      <div class="main_content">
+        <div class="swatches">
+          <img
+            src=""
+            alt=""
+            class="swatch1 w-100"
+            data-target="swatch1"
+            onclick="switchSwatch(this)"
+          />
+          <img
+            src=""
+            alt=""
+            class="swatch2 w-100"
+            data-target="swatch2"
+            onclick="switchSwatch(this)"
+          />
+          <img
+            src=""
+            alt=""
+            class="swatch3 w-100"
+            data-target="swatch3"
+            onclick="switchSwatch(this)"
+          />
+          <img
+            src=""
+            alt=""
+            class="swatch4 w-100"
+            data-target="swatch4"
+            onclick="switchSwatch(this)"
+          />
+          <img
+            src=""
+            alt=""
+            class="swatch5 w-100"
+            data-target="swatch5"
+            onclick="switchSwatch(this)"
+          />
+          <img
+            src=""
+            alt=""
+            class="swatch6 w-100"
+            data-target="swatch6"
+            onclick="switchSwatch(this)"
+          />
+          <img
+            src=""
+            alt=""
+            class="swatch7 w-100"
+            data-target="swatch7"
+            onclick="switchSwatch(this)"
+          />
+          <img
+            src=""
+            alt=""
+            class="swatch8 w-100"
+            data-target="swatch8"
+            onclick="switchSwatch(this)"
+          />
+          <img
+            src=""
+            alt=""
+            class="swatch9 w-100"
+            data-target="swatch9"
+            onclick="switchSwatch(this)"
+          />
+          <img
+            src=""
+            alt=""
+            class="swatch10 w-100"
+            data-target="swatch10"
+            onclick="switchSwatch(this)"
+          />
+        </div>
+        <img src="" alt="" class="main_light w-100" id="main_pic" />
+      </div>
+      <div class="tans">
+        <img
+          src=""
+          alt=""
+          class="tan1 w-100"
+          data-target="tan1"
+          onclick="switchTan(this)"
+        />
+        <img
+          src=""
+          alt=""
+          class="tan2 w-100"
+          data-target="tan2"
+          onclick="switchTan(this)"
+        />
+        <img
+          src=""
+          alt=""
+          class="tan3 w-100"
+          data-target="tan3"
+          onclick="switchTan(this)"
+        />
+      </div>
+      <div class="sub_title flex w-80">
+        <img src="" alt="" class="sub_title w-100" />
+      </div>
+    </div>
     <script>
       (function () {
         const mraid = window.mraid || {};
@@ -124,11 +406,62 @@
         }
       })();
     </script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
-      integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+    <script>
+      let activeTan = "tan1";
+      let activeSwatch = "swatch1";
+      const main_pic = document.getElementById("main_pic");
+      let lights = [
+        "main_light",
+        "light_2",
+        "light_3",
+        "light_4",
+        "light_5",
+        "light_6",
+        "light_7",
+        "light_8",
+        "light_9",
+        "light_10",
+      ];
+      let mids = [
+        "main_mid",
+        "mid_2",
+        "mid_3",
+        "mid_4",
+        "mid_5",
+        "mid_6",
+        "mid_7",
+        "mid_8",
+        "mid_9",
+        "mid_10",
+      ];
+      let darks = [
+        "main_dark",
+        "dark_2",
+        "dark_3",
+        "dark_4",
+        "dark_5",
+        "dark_6",
+        "dark_7",
+        "dark_8",
+        "dark_9",
+        "dark_10",
+      ];
+      function switchTan(e) {
+        const tanMap = {
+          tan1: { swatch: "swatch1", add: "main_light" },
+          tan2: { swatch: "swatch2", add: "main_mid" },
+          tan3: { swatch: "swatch3", add: "main_dark" },
+        };
+        const target = e.dataset.target;
+        if (tanMap[target]) {
+          activeTan = target;
+          activeSwatch = tanMap[target].swatch;
+          main_pic.classList.remove("main_light", "main_mid", "main_dark");
+          main_pic.classList.add(tanMap[target].add);
+        }
+      }
+
+      function switchSwatch(e) {}
+    </script>
   </body>
 </html>
