@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
+      .header_landscape {
+        content: url("assets/text/BIO-RADIANT™\ GEL-POWDER\ HIGHLIGHTER_landscape.png");
+      }
       .light_1 {
         content: url("assets/model/light/Layer\ 21.jpg");
       }
@@ -101,11 +104,12 @@
         background-size: cover;
       }
       .container {
+        padding: 10% 0;
         min-height: 100vh;
         min-width: 100vw;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: start;
         align-items: center;
       }
       .logo {
@@ -147,6 +151,9 @@
       .swatch10 {
         content: url("assets/shades/10-swatch-chocolate-opal_52x.jpg");
       }
+      .cta-btn {
+        content: url("assets/CTA_button.png");
+      }
       .w-100 {
         width: 100%;
       }
@@ -155,6 +162,8 @@
       }
       .tans {
         margin-top: 5%;
+        display: flex;
+        gap: 3%;
       }
       .tan1 {
         content: url("assets/skin\ tones/light.jpg");
@@ -170,6 +179,16 @@
         margin-top: 2%;
       }
       .tan {
+        width: 60%;
+      }
+      .cta-btn-container {
+        position: fixed;
+        bottom: 4%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .cta-btn-container img {
         width: 60%;
       }
       .flex {
@@ -194,6 +213,91 @@
         align-items: center;
         width: 30%;
       }
+      .img-tan-container {
+        width: 50px;
+        height: 45px;
+        overflow: hidden;
+      }
+      .img-tan-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .pulse-button {
+        cursor: pointer;
+        animation: pulse 1s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      @media (orientation: landscape) {
+        .container {
+          display: none;
+        }
+        .landscape {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+        }
+        .right {
+          width: 50vw;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          gap: 5%;
+          height: 100vh;
+        }
+        .left {
+          width: 50vw;
+          display: flex;
+          justify-content: start;
+          flex-direction: column;
+          align-items: center;
+        }
+        .header {
+          width: 70%;
+          margin: 3% 0;
+        }
+        .main_content {
+          width: 68%;
+        }
+        .r_logo img,
+        .r_header img,
+        .cta-btn {
+          width: 100%;
+          height: 100%;
+          object-fit: contain; /* or 'cover' depending on your needs */
+        }
+        .r_logo {
+          width: 30%;
+        }
+        .r_header {
+          width: 50%;
+        }
+        .r_cta-btn-container {
+          width: 55%;
+        }
+      }
+      @media (orientation: portrait) {
+        .landscape {
+          display: none;
+        }
+
+        .container {
+          display: flex;
+        }
+      }
     </style>
   </head>
   <body>
@@ -207,50 +311,36 @@
       <div class="main_content">
         <div class="swatches">
           <img
-            src=""
-            alt=""
             class="swatch1 w-100"
             data-target="swatch1"
             onclick="switchSwatch(this)"
           />
           <img
-            src=""
-            alt=""
             class="swatch2 w-100"
             data-target="swatch2"
             onclick="switchSwatch(this)"
           />
           <img
-            src=""
-            alt=""
             class="swatch3 w-100"
             data-target="swatch3"
             onclick="switchSwatch(this)"
           />
           <img
-            src=""
-            alt=""
             class="swatch4 w-100"
             data-target="swatch4"
             onclick="switchSwatch(this)"
           />
           <img
-            src=""
-            alt=""
             class="swatch5 w-100"
             data-target="swatch5"
             onclick="switchSwatch(this)"
           />
           <img
-            src=""
-            alt=""
             class="swatch6 w-100"
             data-target="swatch6"
             onclick="switchSwatch(this)"
           />
           <img
-            src=""
-            alt=""
             class="swatch7 w-100"
             data-target="swatch7"
             onclick="switchSwatch(this)"
@@ -263,27 +353,21 @@
             onclick="switchSwatch(this)"
           />
           <img
-            src=""
-            alt=""
             class="swatch9 w-100"
             data-target="swatch9"
             onclick="switchSwatch(this)"
           />
           <img
-            src=""
-            alt=""
             class="swatch10 w-100"
             data-target="swatch10"
             onclick="switchSwatch(this)"
           />
         </div>
-        <img src="" alt="" class="light_1 w-100" id="main_pic" />
+        <img class="light_1 w-100" id="main_pic" />
       </div>
       <div class="tans">
         <div class="img-tan-container">
           <img
-            src=""
-            alt=""
             class="tan1 w-100 tan"
             data-target="tan1"
             onclick="switchTan(this)"
@@ -291,8 +375,6 @@
         </div>
         <div class="img-tan-container">
           <img
-            src=""
-            alt=""
             class="tan2 w-100 tan"
             data-target="tan2"
             onclick="switchTan(this)"
@@ -300,8 +382,6 @@
         </div>
         <div class="img-tan-container">
           <img
-            src=""
-            alt=""
             class="tan3 w-100 tan"
             data-target="tan3"
             onclick="switchTan(this)"
@@ -310,6 +390,107 @@
       </div>
       <div class="sub_title flex w-80">
         <img src="" alt="" class="sub_title w-100" />
+      </div>
+      <div class="cta-btn-container pulse-button" onclick="mraid.open()">
+        <img class="cta-btn" />
+      </div>
+    </div>
+    <div class="landscape">
+      <div class="left">
+        <div class="header">
+          <img src="" alt="" class="sub_title w-100" />
+        </div>
+        <div class="main_content">
+          <div class="swatches">
+            <img
+              class="swatch1 w-100"
+              data-target="swatch1"
+              onclick="switchSwatch(this)"
+            />
+            <img
+              class="swatch2 w-100"
+              data-target="swatch2"
+              onclick="switchSwatch(this)"
+            />
+            <img
+              class="swatch3 w-100"
+              data-target="swatch3"
+              onclick="switchSwatch(this)"
+            />
+            <img
+              class="swatch4 w-100"
+              data-target="swatch4"
+              onclick="switchSwatch(this)"
+            />
+            <img
+              class="swatch5 w-100"
+              data-target="swatch5"
+              onclick="switchSwatch(this)"
+            />
+            <img
+              class="swatch6 w-100"
+              data-target="swatch6"
+              onclick="switchSwatch(this)"
+            />
+            <img
+              class="swatch7 w-100"
+              data-target="swatch7"
+              onclick="switchSwatch(this)"
+            />
+            <img
+              src=""
+              alt=""
+              class="swatch8 w-100"
+              data-target="swatch8"
+              onclick="switchSwatch(this)"
+            />
+            <img
+              class="swatch9 w-100"
+              data-target="swatch9"
+              onclick="switchSwatch(this)"
+            />
+            <img
+              class="swatch10 w-100"
+              data-target="swatch10"
+              onclick="switchSwatch(this)"
+            />
+          </div>
+          <div class="l_main_pic light_1 w-100" id="main_pic2"></div>
+        </div>
+        <div class="tans">
+          <div class="img-tan-container">
+            <img
+              class="tan1 w-100 tan"
+              data-target="tan1"
+              onclick="switchTan(this)"
+            />
+          </div>
+          <div class="img-tan-container">
+            <img
+              class="tan2 w-100 tan"
+              data-target="tan2"
+              onclick="switchTan(this)"
+            />
+          </div>
+          <div class="img-tan-container">
+            <img
+              class="tan3 w-100 tan"
+              data-target="tan3"
+              onclick="switchTan(this)"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="r_logo">
+          <img src="" alt="" class="logo w-100" />
+        </div>
+        <div class="r_header">
+          <img src="" alt="" class="header_landscape w-100" />
+        </div>
+        <div class="r_cta-btn-container pulse-button" onclick="mraid.open()">
+          <img class="cta-btn" />
+        </div>
       </div>
     </div>
     <script>
@@ -426,6 +607,7 @@
       let activeTan = "tan1";
       let activeSwatch = "swatch1";
       const main_pic = document.getElementById("main_pic");
+      const main_pic2 = document.getElementById("main_pic2");
       let lights = [
         "light_1",
         "light_2",
@@ -464,6 +646,7 @@
       ];
 
       function switchTan(e) {
+        console.log("CLICK", e)
         const tanMap = {
           tan1: { swatch: "swatch1", add: "light_1" },
           tan2: { swatch: "swatch2", add: "mid_1" },
@@ -471,15 +654,19 @@
         };
         const target = e.dataset.target;
         if (tanMap[target]) {
+
           activeTan = target;
           activeSwatch = tanMap[target].swatch;
           main_pic.classList.remove("light_1", "mid_1", "dark_1");
+          main_pic2.classList.remove("light_1", "mid_1", "dark_1");
           main_pic.classList.add(tanMap[target].add);
+          main_pic2.classList.add(tanMap[target].add);
         }
       }
 
       function switchSwatch(e) {
         main_pic.className = "w-100";
+        main_pic2.className = "w-100";
         const swatchGroups = {
           tan1: "light_",
           tan2: "mid_",
@@ -491,6 +678,7 @@
           const swatchNumber = targetSwatch.replace("swatch", "");
           if (swatchNumber >= 1 && swatchNumber <= 10) {
             main_pic.classList.add(`${swatchPrefix}${swatchNumber}`);
+            main_pic2.classList.add(`${swatchPrefix}${swatchNumber}`);
           }
         }
       }
