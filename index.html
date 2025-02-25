@@ -5,15 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hypnozio</title>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <style></style>
+    <style>
+      .bg-img{
+        background:url("test1.png");
+      }
+      .content{
+        content:url("test2.png");
+      }
+    </style>
   </head>
   <body>
-    <main class="bg-white flex w-full max-w-[100%] h-screen overflow-hidden">
+    <main class="bg-img flex w-full max-w-[100%] h-screen overflow-hidden">
       <section id="content" class="overflow-y-scroll relative content w-full">
-        <div class="w-full h-full bg-red-500">TESTETSET</div>
+        <div class="w-full h-full bg-red-500">
+          <img src="./Few times a week.png" />
+          <img class="content" />
+        </div>
       </section>
     </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script>
       (function () {
         const mraid = window.mraid || {};
