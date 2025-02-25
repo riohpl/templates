@@ -29,32 +29,51 @@ function Convert-ImageToBase64 {
 # Read the input HTML file
 $htmlContent = Get-Content -Path $inputFile -Raw
 
-# Replace <img> tag src attributes with base64
-$htmlContent = [regex]::Replace($htmlContent, '<img\s+[^>]*src="([^"]+)"', {
-    param($match)
-    $srcPath = $match.Groups[1].Value
+# Find all image paths in the HTML content
+$imageMatches = [regex]::Matches($htmlContent, '<img\s+[^>]*src="([^"]+)"') + [regex]::Matches($htmlContent, '(content|background)\s*:\s*url\(["'']?([^)"'']+)["'']?\)')
+
+# Total number of images to process
+$totalImages = $imageMatches.Count
+$processedImages = 0
+
+# Function to update progress
+function Update-Progress {
+    param (
+        [int]$processed,
+        [int]$total
+    )
+    $progress = [math]::Round(($processed / $total) * 100, 2)
+    Write-Progress -Activity "Converting Images" -Status "$progress% Complete" -PercentComplete $progress
+}
+
+# Process each image match manually
+foreach ($match in $imageMatches) {
+    if ($match.Groups[1].Value -eq "content" -or $match.Groups[1].Value -eq "background") {
+        # CSS url() match
+        $cssProperty = $match.Groups[1].Value
+        $srcPath = $match.Groups[2].Value
+    } else {
+        # <img> tag match
+        $srcPath = $match.Groups[1].Value
+    }
 
     # Ensure the image exists
     if (Test-Path -Path $srcPath) {
         $base64Src = Convert-ImageToBase64 -imagePath $srcPath
-        return $match.Value -replace 'src="[^"]+"', "src=`"$base64Src`""
+        if ($match.Groups[1].Value -eq "content" -or $match.Groups[1].Value -eq "background") {
+            # Replace CSS url()
+            $replacement = "$cssProperty`: url(`"$base64Src`")"
+        } else {
+            # Replace <img> src
+            $replacement = $match.Value -replace 'src="[^"]+"', "src=`"$base64Src`""
+        }
+        $htmlContent = $htmlContent -replace [regex]::Escape($match.Value), $replacement
     }
-    return $match.Value  # Keep original if file not found
-})
 
-# Replace CSS content and background image URLs
-$htmlContent = [regex]::Replace($htmlContent, '(content|background)\s*:\s*url\(["'']?([^)"'']+)["'']?\)', {
-    param($match)
-    $cssProperty = $match.Groups[1].Value
-    $srcPath = $match.Groups[2].Value
-
-    # Ensure the image exists
-    if (Test-Path -Path $srcPath) {
-        $base64Src = Convert-ImageToBase64 -imagePath $srcPath
-        return "$cssProperty`: url(`"$base64Src`")"
-    }
-    return $match.Value  # Keep original if file not found
-})
+    # Update progress
+    $processedImages++
+    Update-Progress -processed $processedImages -total $totalImages
+}
 
 # Write the modified HTML to the output file
 Set-Content -Path $outputFile -Value $htmlContent -Encoding UTF8
