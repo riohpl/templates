@@ -29,6 +29,13 @@ function Convert-ImageToBase64 {
 # Read the input HTML file
 $htmlContent = Get-Content -Path $inputFile -Raw
 
+# Find all image paths in the HTML content
+$imageMatches = [regex]::Matches($htmlContent, '<img\s+[^>]*src="([^"]+)"') + [regex]::Matches($htmlContent, '(content|background)\s*:\s*url\(["'']?([^)"'']+)["'']?\)')
+
+# Total number of images to process
+$totalImages = $imageMatches.Count
+$processedImages = 0
+
 # Replace <img> tag src attributes with base64
 $htmlContent = [regex]::Replace($htmlContent, '<img\s+[^>]*src="([^"]+)"', {
     param($match)
@@ -37,6 +44,9 @@ $htmlContent = [regex]::Replace($htmlContent, '<img\s+[^>]*src="([^"]+)"', {
     # Ensure the image exists
     if (Test-Path -Path $srcPath) {
         $base64Src = Convert-ImageToBase64 -imagePath $srcPath
+        $processedImages++
+        $progress = [math]::Round(($processedImages / $totalImages) * 100, 2)
+        Write-Progress -Activity "Converting Images" -Status "$progress% Complete" -PercentComplete $progress
         return $match.Value -replace 'src="[^"]+"', "src=`"$base64Src`""
     }
     return $match.Value  # Keep original if file not found
@@ -51,6 +61,9 @@ $htmlContent = [regex]::Replace($htmlContent, '(content|background)\s*:\s*url\([
     # Ensure the image exists
     if (Test-Path -Path $srcPath) {
         $base64Src = Convert-ImageToBase64 -imagePath $srcPath
+        $processedImages++
+        $progress = [math]::Round(($processedImages / $totalImages) * 100, 2)
+        Write-Progress -Activity "Converting Images" -Status "$progress% Complete" -PercentComplete $progress
         return "$cssProperty`: url(`"$base64Src`")"
     }
     return $match.Value  # Keep original if file not found
