@@ -1,6 +1,7 @@
 # Input and output file paths
 $inputFile = "index.html"
 $outputFile = "output.html"
+$logFile = "failed_images.log"  # Log file for failed images
 
 # Function to convert image to base64
 function Convert-ImageToBase64 {
@@ -8,22 +9,27 @@ function Convert-ImageToBase64 {
         [string]$imagePath
     )
     if (-not (Test-Path -Path $imagePath)) {
-        Write-Host "Warning: Image '$imagePath' not found, skipping."
-        return $imagePath  # Return original path if image not found
+        Write-Host "Warning: Image '$imagePath' not found, skipping." -ForegroundColor Yellow
+        return $null  # Return null if image not found
     }
 
-    $mimeType = switch ([System.IO.Path]::GetExtension($imagePath).ToLower()) {
-        ".png"  { "image/png" }
-        ".jpg"  { "image/jpeg" }
-        ".jpeg" { "image/jpeg" }
-        ".gif"  { "image/gif" }
-        ".svg"  { "image/svg+xml" }
-        ".webp" { "image/webp" }
-        default { "application/octet-stream" }  # Fallback MIME type
-    }
+    try {
+        $mimeType = switch ([System.IO.Path]::GetExtension($imagePath).ToLower()) {
+            ".png"  { "image/png" }
+            ".jpg"  { "image/jpeg" }
+            ".jpeg" { "image/jpeg" }
+            ".gif"  { "image/gif" }
+            ".svg"  { "image/svg+xml" }
+            ".webp" { "image/webp" }
+            default { "application/octet-stream" }  # Fallback MIME type
+        }
 
-    $base64Data = [Convert]::ToBase64String((Get-Content -Path $imagePath -Encoding Byte))
-    return "data:$mimeType;base64,$base64Data"
+        $base64Data = [Convert]::ToBase64String((Get-Content -Path $imagePath -Encoding Byte))
+        return "data:$mimeType;base64,$base64Data"
+    } catch {
+        Write-Host "Error: Failed to convert image '$imagePath'. Details: $_" -ForegroundColor Red
+        return $null  # Return null if conversion fails
+    }
 }
 
 # Read the input HTML file
@@ -35,6 +41,12 @@ $imageMatches = [regex]::Matches($htmlContent, '<img\s+[^>]*src="([^"]+)"') + [r
 # Total number of images to process
 $totalImages = $imageMatches.Count
 $processedImages = 0
+
+# Log file for failed images
+if (Test-Path -Path $logFile) {
+    Remove-Item -Path $logFile -Force  # Clear existing log file
+}
+New-Item -Path $logFile -ItemType File -Force | Out-Null
 
 # Function to update progress
 function Update-Progress {
@@ -57,9 +69,16 @@ foreach ($match in $imageMatches) {
         $srcPath = $match.Groups[1].Value
     }
 
-    # Ensure the image exists
-    if (Test-Path -Path $srcPath) {
-        $base64Src = Convert-ImageToBase64 -imagePath $srcPath
+    # Convert the image to base64
+    $base64Src = Convert-ImageToBase64 -imagePath $srcPath
+
+    if ($null -eq $base64Src) {
+        # Log the failed image
+        $logMessage = "Failed to process image: $srcPath"
+        Add-Content -Path $logFile -Value $logMessage
+        Write-Host $logMessage -ForegroundColor Red  # Color failed logs red
+    } else {
+        # Replace the original path with base64 data
         if ($match.Groups[1].Value -eq "content" -or $match.Groups[1].Value -eq "background") {
             # Replace CSS url()
             $replacement = "$cssProperty`: url(`"$base64Src`")"
@@ -78,4 +97,5 @@ foreach ($match in $imageMatches) {
 # Write the modified HTML to the output file
 Set-Content -Path $outputFile -Value $htmlContent -Encoding UTF8
 
-Write-Host "Conversion complete. Output saved to '$outputFile'"
+Write-Host "Conversion complete. Output saved to '$outputFile'" -ForegroundColor Green
+Write-Host "Failed images logged to '$logFile'" -ForegroundColor Yellow
