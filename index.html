@@ -3,26 +3,88 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hypnozio</title>
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>Brunt</title>
     <style>
-      .bg-img{
-        background:url("test.png");
+      body {
+        width: 100%;
+        margin: 0;
+        background-color: #f2f2f2;
       }
-      .content{
-        content:url("test2.png");
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        min-height: 100vh;
+        gap: 20px;
+        padding: 5% 0;
+      }
+      .logo {
+        content: url("brunt_mip_assets/Assets/LOGO.png");
+      }
+      .header {
+        content: url("brunt_mip_assets/Assets/TEXT.png");
+      }
+      .video {
+        content: url("brunt_mip_assets/Assets/shoe\ 2.png");
+      }
+      .spin_btn {
+        content: url("brunt_mip_assets/Assets/SPIN\ 1.png");
+        animation: spin_blink 0.3s ease-in-out infinite;
+      }
+
+      @keyframes spin_blink {
+        0% {
+          content: url("brunt_mip_assets/Assets/SPIN\ 1.png");
+        }
+        100% {
+          content: url("brunt_mip_assets/Assets/SPIN\ 2.png");
+        }
+      }
+      .shoe_blink{
+        animation: shoe_blink 3s ease-in-out infinite alternate;
+      }
+      @keyframes shoe_blink {
+        0% {
+          content: url("brunt_mip_assets/Assets/shoe\ 1.png");
+        }
+        50% {
+          content: url("brunt_mip_assets/Assets/shoe\ 2.png");
+        }
+        100% {
+          content: url("brunt_mip_assets/Assets/shoe\ 3.png");
+        }
+      }
+      .w-100 {
+        width: 100%;
+      }
+      .w-20 {
+        width: 20%;
+      }
+      .w-80 {
+        width: 80%;
+      }
+      .w-45 {
+        width: 45%;
+      }
+      .w-min {
+        width: min-content;
       }
     </style>
   </head>
   <body>
-    <main class="bg-img flex w-full max-w-[100%] h-screen overflow-hidden">
-      <section id="content" class="overflow-y-scroll relative content w-full">
-        <div class="w-full h-full bg-red-500">
-          <img src="./Few times a week.png" />
-          <img class="content" />
-        </div>
-      </section>
-    </main>
+    <div class="container">
+      <div class="logo w-20"></div>
+      <div class="header w-80"></div>
+      <div class="video w-80 shoe_blink"></div>
+      <div class="spin_btn w-45"></div>
+      <!-- <div class="end_card">
+        <div class="logo w-100"></div>
+        <div class="header w-100"></div>
+        <div class="shoe w-100"></div>
+        <div class="cta w-100"></div>
+      </div> -->
+    </div>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
       integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
