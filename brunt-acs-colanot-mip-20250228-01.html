@@ -164,10 +164,21 @@
           align-items: center;
           flex-direction: column;
         }
+        .end_card {
+          display: none;
+        }
       }
       @media screen and (min-width: 480px) {
         .end_card {
           margin-top: 0;
+        }
+        .shoe_container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .shoe_portrait {
+          width: 80%;
         }
       }
     </style>
@@ -192,13 +203,13 @@
       <div class="landscape_header gap-20">
         <div class="logo w-25"></div>
         <div class="header w-85"></div>
-        <img class="cta w-60 pulse-button" />
+        <img class="cta w-60 pulse-button" onclick="mraid.open('')"/>
       </div>
       <div class="end_card hide" id="end_card">
-        <div class="w-100">
-          <img class="shoe shoe_blink w-100" alt="" />
+        <div class="w-100 shoe_container">
+          <img class="shoe shoe_blink w-100 shoe_portrait" alt="" />
         </div>
-        <div class="w-100 center cta-btn">
+        <div class="w-100 center cta-btn" onclick="mraid.open('')">
           <img class="cta w-60 pulse-button" />
         </div>
       </div>
@@ -345,4 +356,3 @@
     </script>
   </body>
 </html>
-
