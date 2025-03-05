@@ -69,6 +69,12 @@ foreach ($match in $imageMatches) {
         $srcPath = $match.Groups[1].Value
     }
 
+    # Skip if the image is already in base64 format
+    if ($srcPath -match "^data:") {
+        Write-Host "Skipping base64 image: $srcPath" -ForegroundColor Cyan
+        continue
+    }
+
     # Convert the image to base64
     $base64Src = Convert-ImageToBase64 -imagePath $srcPath
 
